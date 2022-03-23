@@ -1,0 +1,49 @@
+@import "../Variables/variables.scss";
+
+.ContentBlack {
+  background-color: black;
+
+  .wrapper {
+    min-height: 600px;
+    max-width: $max-width;
+    padding: 0 22px;
+    margin: auto;
+    color: $white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    .headline {
+      margin: 55px 0 0 0;
+      font-size: 56px;
+      line-height: 1.07143;
+      font-weight: 600;
+    }
+    .subhead {
+      margin: 6px 0 0 0;
+      font-size: 28px;
+      line-height: 1.10722;
+      font-weight: 400;
+    }
+    .link {
+      display: inline-block;
+      font-size: 21px;
+      line-height: 1.381;
+      font-weight: 400;
+      margin-top: 0.65em;
+      color: $background-blue;
+      a:hover {
+        text-decoration: underline;
+      }
+      ::after {
+        content: " ›";
+      }
+      :nth-child(2) {
+        margin-left: 35px;
+      }
+    }
+    .image_wrapper {
+      margin: 40px 0 0 40px;
+    }
+  }
+}

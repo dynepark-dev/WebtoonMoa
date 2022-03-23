@@ -1,0 +1,29 @@
+@import "../Variables/variables.scss";
+
+.Navbar {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: saturate(180%) blur(20px);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+
+  .navbar_content {
+    max-width: $max-width;
+    height: 44px;
+    margin: auto;
+    padding: 0 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $white;
+  }
+  li {
+    padding: 0 8px;
+    height: 100%;
+    line-height: 3.66;
+    font-size: 12px;
+    opacity: 0.8;
+    cursor: pointer;
+  }
+}
