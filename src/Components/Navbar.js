@@ -25,10 +25,10 @@ function Navbar() {
           <Link to="성인웹툰">BL/GL</Link>
         </li>
         <li>
-          <i class="fa-solid fa-magnifying-glass"></i>
+          <i className="fa-solid fa-magnifying-glass"></i>
         </li>
         <li>
-          <i class="fa-solid fa-user"></i>
+          <i className="fa-solid fa-user"></i>
         </li>
       </ul>
     </nav>

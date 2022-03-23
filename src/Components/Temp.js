@@ -5,27 +5,31 @@ function Temp() {
   return (
     <div className={styles.Temp}>
       <div>temporary component</div>
-      <i class="fa-solid fa-bag-shopping"></i>
-      <i class="fa-solid fa-briefcase"></i>
-      <i class="fa-solid fa-bookmark"></i>
-      <i class="fa-solid fa-box"></i>
-      <i class="fa-solid fa-box-archive"></i>
-      <i class="fa-solid fa-user"></i>
-      <i class="fa-solid fa-user-group"></i>
-      <i class="fa-solid fa-circle-user"></i>
-      <i class="fa-solid fa-heart"></i>
-      <i class="fa-solid fa-gear"></i>
-      <i class="fa-solid fa-bars"></i>
-      <i class="fa-solid fa-chevron-up"></i>
-      <i class="fa-solid fa-chevron-down"></i>
-      <i class="fa-solid fa-x"></i>
-      <i class="fa-solid fa-xmark"></i>
-      <i class="fa-solid fa-plus"></i>
-      <i class="fa-solid fa-check"></i>
+      <i className="fa-solid fa-bag-shopping"></i>
+      <i className="fa-solid fa-briefcase"></i>
+      <i className="fa-solid fa-bookmark"></i>
+      <i className="fa-solid fa-box"></i>
+      <i className="fa-solid fa-box-archive"></i>
+      <i className="fa-solid fa-user"></i>
+      <i className="fa-solid fa-user-group"></i>
+      <i className="fa-solid fa-circle-user"></i>
+      <i className="fa-solid fa-heart"></i>
+      <i className="fa-solid fa-gear"></i>
+      <i className="fa-solid fa-bars"></i>
+      <i className="fa-solid fa-chevron-up"></i>
+      <i className="fa-solid fa-chevron-down"></i>
+      <i className="fa-solid fa-x"></i>
+      <i className="fa-solid fa-xmark"></i>
+      <i className="fa-solid fa-plus"></i>
+      <i className="fa-solid fa-check"></i>
       <div>image</div>
       <img
         src="https://pbs.twimg.com/media/DpoGQZ1U8AIjlk_?format=jpg&name=large"
         alt="background"
+      />
+      <img
+        src="https://t4.ftcdn.net/jpg/04/43/45/83/240_F_443458360_d7STXmCRdncbwK9SqlUVuTlL0IwV92dQ.jpg"
+        alt="red-eye"
       />
     </div>
   );

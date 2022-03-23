@@ -1,52 +1,12 @@
 @import "../Variables/variables.scss";
 
 .Main {
-  background-color: $background-white;
-
-  .main_content {
-    min-height: 600px;
-    max-width: $max-width;
-    padding: 0 22px;
-    margin: auto;
-    color: $title-black;
-    text-align: center;
-    .headline {
-      margin: 55px 0 0 0;
-      font-size: 56px;
-      line-height: 1.07143;
-      font-weight: 600;
-      letter-spacing: -0.005em;
-    }
-    .subhead {
-      margin: 6px 0 0 0;
-      font-size: 28px;
-      line-height: 1.10722;
-      font-weight: 400;
-    }
-    .link {
-      display: inline-block;
-      font-size: 21px;
-      line-height: 1.381;
-      font-weight: 400;
-      margin-top: 0.65em;
-      color: $text-blue;
-      a:hover {
-        text-decoration: underline;
-      }
-      ::after {
-        content: " ›";
-      }
-      :nth-child(2) {
-        margin-left: 35px;
-      }
-    }
-    .image_wrapper {
-      background-color: $background-white;
-      height: 3px;
-      img {
-        filter: brightness(0.99);
-        clip-path: inset(20px);
-      }
-    }
+  background-color: $white;
+  .four {
+    margin: 12px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    font-size: 12px;
   }
 }
