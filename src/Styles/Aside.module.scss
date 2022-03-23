@@ -1,0 +1,10 @@
+@import "../Variables/variables.scss";
+
+.Aside {
+  background-color: $background-lightgrey;
+  height: 70px;
+  color: $white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,11 @@
+@import "../Variables/variables.scss";
+
+.Footer {
+  min-height: 200px;
+  background-color: $background-grey;
+  .footer_content {
+    max-width: $max-width;
+    padding: 0 22px;
+    margin: auto;
+  }
+}
