@@ -1,14 +1,15 @@
 @import "../Variables/variables.scss";
 
-.WebtoonList {
+.NaverList {
     padding: 10px;
-
-    .webtoonlist_content {
+    .wrapper {
         max-width: $max-width;
         padding: 0 22px;
         margin: auto;
         color: $title-black;
         text-align: center;
+        border: 1px solid grey;
+        border-radius: 5px;
     }
     h2 {
         color: $text-grey;
@@ -20,16 +21,13 @@
         display: grid;
         grid-template-columns: repeat(10, 1fr);
     }
-
     li {
         width: 83px;
         position: relative;
         cursor: pointer;
         margin-bottom: 4px;
-        display: flex;
         flex-direction: column;
     }
-
     .title {
         background-color: rgba(0, 0, 0, 0.7);
         text-align: center;

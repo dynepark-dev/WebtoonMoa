@@ -1,11 +1,11 @@
 import React from "react";
 import styles from "../Styles/New.module.scss";
-import WebtoonList from "../Components/WebtoonList";
+import NaverList from "../Components/NaverList";
 
 function New() {
     return (
         <div className={styles.New}>
-            <WebtoonList />
+            <NaverList />
         </div>
     );
 }

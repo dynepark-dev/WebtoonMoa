@@ -13,7 +13,7 @@ function Navbar() {
                     <Link to="/new">최신웹툰</Link>
                 </li>
                 <li>
-                    <Link to="연재웹툰">연재웹툰</Link>
+                    <Link to="/webtoons">연재웹툰</Link>
                 </li>
                 <li>
                     <Link to="완결웹툰">완결웹툰</Link>
