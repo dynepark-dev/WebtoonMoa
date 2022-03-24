@@ -1,22 +1,25 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Aside from "./Components/Aside";
-import Banner from "./Components/Banner";
 import Footer from "./Components/Footer";
-import Main from "./Components/Main";
+import Main from "./Pages/Main";
 import Navbar from "./Components/Navbar";
-import WebtoonList from "./Components/WebtoonList";
+import New from "./Pages/New";
+import Webtoons from "./Pages/Webtoons";
 
 function App() {
-  return (
-    <div className="App">
-      <Aside />
-      <Navbar />
-      <Banner />
-      <Main />
-      <WebtoonList />
-      <Footer />
-    </div>
-  );
+    return (
+        <div className="App">
+            <Aside />
+            <Navbar />
+            <Routes>
+                <Route path="/" element={<Main />} />
+                <Route path="/new" element={<New />} />
+                <Route path="/webtoons" element={<Webtoons />} />
+            </Routes>
+            <Footer />
+        </div>
+    );
 }
 
 export default App;
