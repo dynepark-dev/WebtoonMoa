@@ -1,0 +1,35 @@
+version: '3'
+services:
+  nginx:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./nginx
+    volumes:
+      - ./nginx/logs:/var/log/nginx
+    restart: always
+    ports:
+      - '80:80'
+  
+  react-fe:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./react
+    depends_on:
+      - node-be
+    env_file:
+      - ./react/.env
+    volumes:
+      - /usr/app/node_modules
+      - ./react:/usr/app
+    command: ["npm", "run", "start"]
+
+  node-be:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./node
+    env_file:
+      - ./node/.env
+    volumes:
+      - /usr/app/node_modules
+      - ./node:/usr/app
+    command: ["npm", "run", "dev"]
