@@ -1,0 +1,12 @@
+@import "../Variables/variables.scss";
+
+.Main {
+  background-color: $white;
+  .four {
+    margin: 12px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    font-size: 12px;
+  }
+}

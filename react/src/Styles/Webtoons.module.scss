@@ -1,0 +1,38 @@
+@import "../Variables/variables.scss";
+
+.Webtoons {
+  padding: 10px;
+  background-color: $white;
+  .wrapper {
+    h2 {
+      color: $text-grey;
+      margin: 20px;
+    }
+    max-width: $max-width;
+    padding: 0 22px;
+    margin: auto;
+    color: $title-black;
+    text-align: center;
+    border: 1px solid grey;
+    border-radius: 5px;
+    .webtoons {
+      padding: 8px;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+    }
+    button {
+      width: 20%;
+      display: block;
+      margin: 20px auto;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      background-color: $button-blue;
+      color: $white;
+      font-weight: bold;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+  }
+}

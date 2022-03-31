@@ -1,0 +1,43 @@
+@import "../Variables/variables.scss";
+
+.NaverList {
+  padding: 10px;
+  .wrapper {
+    max-width: $max-width;
+    padding: 0 22px;
+    margin: auto;
+    color: $title-black;
+    text-align: center;
+    border: 1px solid grey;
+    border-radius: 5px;
+  }
+  h2 {
+    color: $text-grey;
+    margin: 20px;
+  }
+  ul {
+    width: 1000px;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+  }
+  li {
+    width: 83px;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 4px;
+    flex-direction: column;
+  }
+  .title {
+    background-color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    width: 100%;
+    font-size: 0.8em;
+    color: white;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
