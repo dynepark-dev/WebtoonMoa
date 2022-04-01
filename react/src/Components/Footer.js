@@ -4,25 +4,27 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   const socialIconsArray = [
-    { id: 0, name: "facebook", link: "#", icon: "fa fa-facebook" },
-    { id: 1, name: "twitter", link: "#", icon: "fa fa-twitter" },
-    { id: 2, name: "dribbble", link: "#", icon: "fa fa-dribbble" },
-    { id: 3, name: "linkedin", link: "#", icon: "fa fa-linkedin" },
+    { id: 0, name: "facebook", link: "/404", icon: "fa fa-facebook" },
+    { id: 1, name: "twitter", link: "/404", icon: "fa fa-twitter" },
+    { id: 2, name: "dribbble", link: "/404", icon: "fa fa-dribbble" },
+    { id: 3, name: "linkedin", link: "/404", icon: "fa fa-linkedin" },
   ];
   const categoryArray = [
-    { id: 0, name: "Updated", link: "#" },
-    { id: 1, name: "Ongoing", link: "#" },
-    { id: 2, name: "Finished", link: "#" },
-    { id: 3, name: "Adult", link: "#" },
-    { id: 4, name: "BL/GL", link: "#" },
-    { id: 5, name: "Community", link: "#" },
+    { id: 0, name: "Updated", link: "/404" },
+    { id: 1, name: "Ongoing", link: "/404" },
+    { id: 2, name: "Finished", link: "/404" },
+    { id: 3, name: "Adult", link: "/404" },
+    { id: 4, name: "BL/GL", link: "/404" },
+    { id: 5, name: "Community", link: "/404" },
   ];
   const linkArray = [
-    { id: 0, name: "About", link: "#" },
-    { id: 1, name: "Contract", link: "#" },
-    { id: 2, name: "Contribute", link: "#" },
-    { id: 3, name: "Policy", link: "#" },
-    { id: 4, name: "Site Map", link: "#" },
+    { id: 0, name: "About", link: "/404" },
+    { id: 1, name: "Contract", link: "/404" },
+    { id: 2, name: "Contribute", link: "/404" },
+    { id: 3, name: "Policy", link: "/404" },
+    { id: 4, name: "Site Map", link: "/404" },
+    { id: 5, name: "Login", link: "/404" },
+    { id: 6, name: "Sign Up", link: "/404" },
   ];
   return (
     <footer className={styles.Footer}>
@@ -37,9 +39,10 @@ function Footer() {
           <div className={styles.about}>
             <h4>ABOUT</h4>
             <div>
-              Webtoonmoa is Wiki for webtoons. Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Hic, voluptas exercitationem alias
-              iusto laudantium est aut illum dolores veritatis tempora excepturi
+              Webtoonmoa is Wiki for webtoons. Every webtoon is redirected to
+              its official website. Lorem ipsum dolor sit amet consectetur
+              adipisicing elit. Hic, voluptas exercitationem alias iusto
+              laudantium est aut illum dolores veritatis tempora excepturi
               labore eligendi ipsum earum deserunt laborum? Rem pariatur facilis
               voluptatum earum! Maiores exercitationem deserunt id quia deleniti
               commodi ipsum.

@@ -1,5 +1,18 @@
 @import '../Variables/variables.scss';
 
 .NotFound {
-  background-color: #fff;
+  background-color: $background-white;
+  font-size: 48px;
+  max-width: 100%;
+  text-align: center;
+  padding: 4rem;
+  color: $title-black;
+  h4{
+    margin-bottom: 1em;
+  }
+}
+@media all and (max-width:767px) {
+  .NotFound {
+    font-size: 12px;
+  }
 }
