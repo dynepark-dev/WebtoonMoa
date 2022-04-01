@@ -7,6 +7,7 @@ import New from "./Pages/New";
 import Webtoons from "./Pages/Webtoons";
 import Home from "./Pages/Home";
 import NotFound from "./Pages/NotFound";
+import HoverButton from "./Components/HoverButton";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/webtoons" element={<Webtoons />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <HoverButton />
       <Footer />
     </div>
   );

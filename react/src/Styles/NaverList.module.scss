@@ -22,8 +22,7 @@
       flex-wrap: wrap;
       gap: .5rem;
       li {
-        width: 83px;
-        // max-width: 120px;
+        width: 85px;
         cursor: pointer;
         figure{
           border: 1px solid $border-grey;
@@ -38,6 +37,7 @@
             text-align: center;
             width: 100%;
             font-size: 0.8em;
+            font-weight: bold;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
