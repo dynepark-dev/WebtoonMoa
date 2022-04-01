@@ -2,28 +2,123 @@
 
 .Navbar {
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba($white, 0.8);
   backdrop-filter: saturate(180%) blur(20px);
+  box-shadow: 0 0px 6px rgba($black, 0.8);
   position: sticky;
   top: 0;
-  z-index: 1;
-
-  .navbar_content {
-    max-width: $max-width;
-    height: 44px;
+  z-index: 10;
+  .wrapper{
     margin: auto;
-    padding: 0 22px;
+    max-width: $max-width;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    color: $white;
-  }
-  li {
-    padding: 0 8px;
-    height: 100%;
-    line-height: 3.66;
-    font-size: 12px;
-    opacity: 0.8;
-    cursor: pointer;
+    align-items:center;
+    color: $text-grey;
+    .burger{
+      padding: 1rem;
+      font-size: 1rem;
+      line-height:2rem;
+      display:none;
+      cursor: pointer;
+    }
+    .logo{
+      position:relative;
+      width: 4rem;
+      height: 4rem;
+      transform-style: preserve-3d;
+      transition: 1000ms;
+      border: none;
+      img {
+        position:absolute;
+        height: 4rem;
+        backface-visibility: hidden;
+      };
+      .logo_front{
+        transform: rotateY(-180deg);
+      }
+    }
+    .flip{
+      transform: rotateY(180deg); 
+    }
+    .gnb {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .tab {
+        padding: 1rem;
+        font-size: 1rem;
+        line-height:2rem;
+        white-space: nowrap;
+        font-weight: bold;
+        cursor: pointer; 
+        &:hover{
+          color: $text-blue;
+        }
+      } 
+      .active{
+        color: $text-blue;
+      }
+    }
+    .icons{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      li{
+        color: $title-black;
+        padding: 1rem;
+        font-size: 1rem;
+        line-height:2rem;
+        white-space: nowrap;
+        font-weight: bold;
+        cursor: pointer;
+          &:hover{
+            color: $text-blue;
+          }
+      }      
+    }
   }
 }
+
+@media all and (max-width:767px) { 
+  .Navbar{
+    .wrapper{
+      flex-direction: column;
+      .burger{
+        position:fixed;
+        left:0;
+        display:block;
+      }
+      .gnb{
+        flex-direction: column;
+        display: none;
+        text-align: center;
+        width: 100%;
+        .tab{
+          background-color: rgba($white, 0.8);
+          backdrop-filter: saturate(180%) blur(20px);
+          &:hover{
+            filter:brightness(0.9);
+          }
+        }
+      }
+      .open{
+        display: block;
+      }
+      .icons{
+        position: fixed;
+        top:0;
+        right:0;
+        .search{
+          display: none;
+        }
+      }
+    }
+  }
+
+}
+// @media all and (max-width:480px) { 
+//   .gnb{
+//     background-color: orange;
+//   }
+// }
