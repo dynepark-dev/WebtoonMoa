@@ -15,9 +15,9 @@ function Webtoon({ webtoon }) {
           />
         </a>
         <Link to={`/webtoon/${webtoon.title}`}>
-          <a className={styles.title} title={webtoon.title}>
+          <div className={styles.title} title={webtoon.title}>
             {webtoon.title}
-          </a>
+          </div>
         </Link>
         <div className={styles.tag}>
           {webtoon.platform && <Platform platform={webtoon.platform} />}
