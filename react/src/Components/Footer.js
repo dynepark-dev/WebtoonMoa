@@ -10,15 +10,30 @@ function Footer() {
     { id: 2, name: "dribbble", link: "#", icon: "fa fa-dribbble" },
     { id: 3, name: "linkedin", link: "#", icon: "fa fa-linkedin" },
   ];
+  const categoryArray = [
+    { id: 0, name: "Updated", link: "#" },
+    { id: 1, name: "Ongoing", link: "#" },
+    { id: 2, name: "Finished", link: "#" },
+    { id: 3, name: "Adult", link: "#" },
+    { id: 3, name: "BL/GL", link: "#" },
+    { id: 3, name: "Community", link: "#" },
+  ];
+  const linkArray = [
+    { id: 0, name: "About", link: "#" },
+    { id: 1, name: "Contract", link: "#" },
+    { id: 2, name: "Contribute", link: "#" },
+    { id: 3, name: "Policy", link: "#" },
+    { id: 3, name: "Site Map", link: "#" },
+  ];
   return (
     <footer className={styles.Footer}>
       <div className={styles.wrapper}>
-        <div className={styles.top}>
+        {/* <div className={styles.top}>
           <div className={styles.logo}>
             <img className={styles.logo_front} src={logo} alt="logo" />
           </div>
           <div className={styles.name}>웹툰모아</div>
-        </div>
+        </div> */}
         <div className={styles.middle}>
           <div className={styles.about}>
             <h4>ABOUT</h4>
@@ -34,44 +49,21 @@ function Footer() {
           <div className={styles.category}>
             <h4>Category</h4>
             <ul>
-              <li>
-                <Link to="#">Updated</Link>
-              </li>
-              <li>
-                <Link to="#">Ongoing</Link>
-              </li>
-              <li>
-                <Link to="#">Finished</Link>
-              </li>
-              <li>
-                <Link to="#">Adult</Link>
-              </li>
-              <li>
-                <Link to="#">BL</Link>/GL
-              </li>
-              <li>
-                <Link to="#">Community</Link>
-              </li>
+              {categoryArray.map((item) => (
+                <li key={item.id}>
+                  <Link to={item.link}>{item.name}</Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div className={styles.link}>
             <h4>Quick Link</h4>
             <ul>
-              <li>
-                <Link to="#">About</Link>
-              </li>
-              <li>
-                <Link to="#">Contact</Link>
-              </li>
-              <li>
-                <Link to="#">Contribuite</Link>
-              </li>
-              <li>
-                <Link to="#">Policy</Link>
-              </li>
-              <li>
-                <Link to="#">SiteMap</Link>
-              </li>
+              {linkArray.map((item) => (
+                <li key={item.id}>
+                  <Link to={item.link}>{item.name}</Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
@@ -79,7 +71,7 @@ function Footer() {
           <div>Copyright © 2099 All Rights not Reserved by Webtoonmoa.</div>
           <ul className={styles.social_icons}>
             {socialIconsArray.map((item) => (
-              <li className={styles.icon}>
+              <li className={styles.icon} key={item.id}>
                 <a className={item.name} href={item.link}>
                   <i className={item.icon}></i>
                 </a>
