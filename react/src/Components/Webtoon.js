@@ -6,24 +6,22 @@ import Platform from "./Platform";
 function Webtoon({ webtoon }) {
   return (
     <div className={styles.Webtoon}>
-      <div className={styles.wrapper}>
-        <a href={webtoon.url}>
+      <Link to={`/webtoon/${webtoon.title}`}>
+        <figure>
           <img
             className={styles.cover}
             src={webtoon.image}
             alt={webtoon.title}
           />
-        </a>
-        <Link to={`/webtoon/${webtoon.title}`}>
-          <div className={styles.title} title={webtoon.title}>
+          <figcaption className={styles.title} title={webtoon.title}>
             {webtoon.title}
-          </div>
-        </Link>
+          </figcaption>
+        </figure>
         <div className={styles.tag}>
           {webtoon.platform && <Platform platform={webtoon.platform} />}
-          <div className={styles.update}>NEW</div>
+          {true && <div className={styles.update}>NEW</div>}
         </div>
-      </div>
+      </Link>
     </div>
   );
 }
