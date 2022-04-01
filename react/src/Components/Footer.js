@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "../Styles/Footer.module.scss";
-import logo from "../Assets/logo.svg";
 import { Link } from "react-router-dom";
 
 function Footer() {
@@ -15,15 +14,15 @@ function Footer() {
     { id: 1, name: "Ongoing", link: "#" },
     { id: 2, name: "Finished", link: "#" },
     { id: 3, name: "Adult", link: "#" },
-    { id: 3, name: "BL/GL", link: "#" },
-    { id: 3, name: "Community", link: "#" },
+    { id: 4, name: "BL/GL", link: "#" },
+    { id: 5, name: "Community", link: "#" },
   ];
   const linkArray = [
     { id: 0, name: "About", link: "#" },
     { id: 1, name: "Contract", link: "#" },
     { id: 2, name: "Contribute", link: "#" },
     { id: 3, name: "Policy", link: "#" },
-    { id: 3, name: "Site Map", link: "#" },
+    { id: 4, name: "Site Map", link: "#" },
   ];
   return (
     <footer className={styles.Footer}>
