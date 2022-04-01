@@ -1,13 +1,89 @@
 @import "../Variables/variables.scss";
 
 .Footer {
-  min-height: 80px;
   background-color: $background-grey;
-  .footer_content {
+  color: $text-grey;
+  .wrapper {
+    height: 100%;
     max-width: $max-width;
-    padding: 0 22px;
     margin: auto;
     text-align: center;
-    color:white;
+    .top{
+      padding: .5rem .25rem;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid rgba($text-grey, 0.5);
+      .logo{
+        background-color: $text-grey;
+        width: 4rem;
+        height: 4rem;
+        img {
+          height: 4rem;
+        };
+      }
+      .name{
+        font-size: 1.5rem;
+        margin-left: .5rem;
+      }
+    }
+    .middle{
+      display: flex;
+      justify-content: space-between;
+      text-align: start;
+      padding: 1rem .5rem;
+      gap: 2rem;
+      border-bottom: 1px solid rgba($text-grey, 0.5);
+      .about{
+        flex:3
+      }
+      .category, .link{
+        flex:1
+      }
+      h4{
+        text-transform:uppercase;
+        font-weight: normal;
+        margin-bottom: 0.5rem;
+      }
+      li, div{
+        color: $text-grey;
+        padding: 0.1rem 0;
+        font-size: .8rem;
+      }
+    }
+    .bottom{
+      font-size: .8rem;
+      padding: 1rem .5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      .social_icons{
+        display: flex;
+        .icon{
+          transition: background-color 300ms;
+          width: 2rem;
+          height: 2rem;
+          margin: 0 .25rem;
+          padding: .4rem;
+          border-radius: 100%;
+          cursor: pointer;
+          color:$white;
+          background-color: rgba($text-grey, 0.5);
+          &:nth-child(1):hover{
+            background-color: #3b5998;
+          }
+          &:nth-child(2):hover{
+            background-color: #00aced;
+          }
+          &:nth-child(3):hover{
+            background-color: #007bb6;
+          }
+          &:nth-child(4):hover{
+            background-color: #ea4c89;
+          }
+        }
+      }
+    }
   }
 }
