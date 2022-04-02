@@ -1,0 +1,19 @@
+.primary-button{
+    cursor: pointer;
+    color:white;
+    margin: 0;
+    padding: 0.5em 1em;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    background-color: $button-blue;
+    &:active,
+    &:hover,
+    &:focus {
+      background:  $text-blue;
+    }
+    &:disabled {
+      opacity: 0.5;
+    }
+}
