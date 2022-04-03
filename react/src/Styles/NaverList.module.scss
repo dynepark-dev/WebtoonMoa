@@ -1,43 +1,54 @@
 @import "../Variables/variables.scss";
 
 .NaverList {
-  padding: 10px;
+  width: 100%;
+  font-size: 16px;
+  background-color: #202020;
+  color: $title-black;
   .wrapper {
+    background-color: white;
     max-width: $max-width;
-    padding: 0 22px;
     margin: auto;
-    color: $title-black;
-    text-align: center;
-    border: 1px solid grey;
-    border-radius: 5px;
+    padding: 1rem .5rem;
+    h2 {
+      padding-bottom: 1rem;
+      text-align: center;
+    }
+    ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: .5rem;
+      li {
+        width: 85px;
+        cursor: pointer;
+        figure{
+          border: 1px solid $border-grey;
+          overflow: hidden;
+          img{
+            aspect-ratio: 83 / 90;
+            width: 100%;
+            border-bottom: 1px solid $border-grey;
+          }
+          figcaption{
+            padding: 0 2px;
+            text-align: center;
+            width: 100%;
+            font-size: 0.8em;
+            font-weight: bold;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+        }
+      }
+    }
   }
-  h2 {
-    color: $text-grey;
-    margin: 20px;
-  }
-  ul {
-    width: 1000px;
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-  }
-  li {
-    width: 83px;
-    position: relative;
-    cursor: pointer;
-    margin-bottom: 4px;
-    flex-direction: column;
-  }
-  .title {
-    background-color: rgba(0, 0, 0, 0.7);
-    text-align: center;
-    display: inline-block;
-    text-decoration: none;
-    width: 100%;
-    font-size: 0.8em;
-    color: white;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+}
+@media all and (max-width:767px) { 
+  .NaverList  {
+    font-size: 12px;
   }
 }

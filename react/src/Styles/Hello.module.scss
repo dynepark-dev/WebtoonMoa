@@ -1,17 +1,14 @@
-@import "../Variables/variables.scss";
+@import '../Variables/variables.scss';
 
-.Content {
+.Hello{
   background-color: $background-white;
-
   .wrapper {
-    min-height: 400px;
     max-width: $max-width;
-    padding: 0 22px;
+    padding: 2rem;
     margin: auto;
     color: $title-black;
     text-align: center;
     .headline {
-      margin: 55px 0 0 0;
       font-size: 3.5em;
       line-height: 1.1;
       font-weight: 600;
@@ -40,12 +37,23 @@
       }
     }
     .image_wrapper {
+      width: 100%;
+      height: 100%;
+      margin: 0;
       background-color: $background-white;
-      height: 3px;
+      object-fit: contain;
       img {
         filter: brightness(0.99);
         clip-path: inset(20px);
+        width:70%;
+        min-width: 300px;
       }
     }
+  }
+}
+
+@media all and (max-width:767px) { 
+  .Hello{
+    font-size:12px;
   }
 }
