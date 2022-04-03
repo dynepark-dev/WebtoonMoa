@@ -8,6 +8,7 @@ import Webtoons from "./Pages/Webtoons";
 import Home from "./Pages/Home";
 import NotFound from "./Pages/NotFound";
 import HoverButton from "./Components/HoverButton";
+import WebtoonDetail from "./Pages/WebtoonDetail";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/new" element={<New />} />
         <Route path="/webtoons" element={<Webtoons />} />
+        <Route path="/webtoon/:id" element={<WebtoonDetail />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <HoverButton />

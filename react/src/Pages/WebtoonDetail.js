@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "../Styles/Webtoons_id.module.scss";
+import styles from "../Styles/WebtoonDetail.module.scss";
 
-function Webtoons_id() {
+function WebtoonDetail() {
   const webtoon = {
     id: 0,
     title: "유부녀 킬러",
@@ -20,7 +20,7 @@ function Webtoons_id() {
     bookmark: "x",
   };
   return (
-    <div className={styles.Webtoons_id}>
+    <div className={styles.WebtoonDetail}>
       <div className={styles.wrapper}>
         <div className={styles.info}>
           <div className={styles.img_wrapper}>
@@ -90,4 +90,4 @@ function Webtoons_id() {
   );
 }
 
-export default Webtoons_id;
+export default WebtoonDetail;
