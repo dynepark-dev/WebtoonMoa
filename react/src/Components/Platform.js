@@ -12,7 +12,6 @@ function Platform({ platform }) {
     { id: 3, name: "Kakaopage", src: KakaopageLogo },
     { id: 4, name: "Bufftoon", src: BufftoonLogo },
   ];
-  console.log(platform);
   return (
     <div className={styles.Platform}>
       <div className={styles.wrapper}>

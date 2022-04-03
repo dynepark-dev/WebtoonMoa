@@ -1,0 +1,79 @@
+@import '../Variables/variables.scss';
+
+.WebtoonDetail{
+  .wrapper{
+    max-width: $max-width;
+    padding: 2rem;
+    margin: auto;
+    color: $title-black;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .info{
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 1rem;
+      .img_wrapper{
+        margin:auto;
+          width: 300px;
+        img{
+          width:100%;
+          object-fit: contain;
+        }
+      }
+      .table_and_buttons{
+        table{
+          border-collapse: collapse;
+          width: 100%;
+          flex:1;
+          tbody{
+            tr{
+              td{
+                border: 1px solid grey;
+                text-align: start;
+                padding: 0 12px 4px;
+              }
+            }
+          }
+        }
+        .buttons{
+          display: flex;
+          justify-content: center;
+          flex-wrap:wrap;
+          gap: 1em;
+          margin-top: 1em;
+          button{
+            // TODO: change to import
+            cursor: pointer;
+            color:white;
+            margin: 0;
+            padding: 0.5em 1em;
+            font-size: 1em;
+            border: none;
+            border-radius: 4px;
+            background-color: $button-blue;
+            &:active,
+            &:hover,
+            &:focus {
+              background:  $text-blue;
+            }
+            &:disabled {
+              opacity: 0.5;
+          }
+          }
+        }
+      }
+    }
+  }
+}
+@media all and (max-width:767px) { 
+  .Webtoons_id{
+    font-size:12px;
+    .info{
+      flex-direction: column;
+    }
+  }
+}
