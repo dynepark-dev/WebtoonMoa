@@ -74,7 +74,7 @@ function Footer() {
           <div>Copyright © 2099 All Rights not Reserved by Webtoonmoa.</div>
           <ul className={styles.social_icons}>
             {socialIconsArray.map((item) => (
-              <Icon item={item} />
+              <Icon key={item.id} item={item} />
             ))}
           </ul>
         </div>

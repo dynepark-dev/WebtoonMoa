@@ -1,7 +1,6 @@
 @import "../Variables/variables.scss";
 
 .Icon{
-  transition: background-color 300ms;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,10 +10,11 @@
   cursor: pointer;
   background-color: $background-lightgrey;
   border-radius: 50%;
+  transition: filter 300ms;
   .icon_button{
-      color:$text-grey;
+    color:$text-grey;
   }
-  :hover{
+  &:hover{
       filter: brightness(1.2)
   }
 }
