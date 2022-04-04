@@ -4,6 +4,7 @@
   background-color: $background-white;
   text-align: center;
   font-size: 16px;
+  padding: 2rem;
   h3{
     font-size: 1.75em;
   }
@@ -14,7 +15,7 @@
     flex-wrap: wrap;
     gap: 1em;
     padding: 1em;
-    margin: 1em auto;
+    margin: auto;
     width: 40%;
     min-width: 400px;
     img{

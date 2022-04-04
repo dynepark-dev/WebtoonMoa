@@ -1,0 +1,25 @@
+@import '../Variables/variables.scss';
+
+button{
+  background-color: $button-blue;
+  border: none;
+  border-radius: 6px;
+  font-size: 1em;
+  padding: .5em 1em;
+  min-width: 10em;
+  width: 100%;
+  max-width: 20vw;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  white-space: nowrap;
+  color: #fff;
+  text-align: center;
+  transition: filter 300ms;
+  &:hover{
+      filter: brightness(1.1);
+  }
+}
+.selected{
+  color: yellow;
+}

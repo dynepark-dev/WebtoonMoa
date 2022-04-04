@@ -9,10 +9,10 @@ function Home() {
   return (
     <div className={styles.Home}>
       <Hello />
-      {/* <div>
-        <Card />
-      </div> */}
       <OfficialLink />
+      <div>
+        <Card />
+      </div>
       <Qna />
     </div>
   );
