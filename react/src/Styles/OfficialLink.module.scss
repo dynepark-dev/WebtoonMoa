@@ -16,14 +16,13 @@
     gap: 1em;
     padding: 1em;
     margin: auto;
-    width: 40%;
-    min-width: 400px;
+    max-width: 780px;
     img{
       transition: transform 300ms;
       width: 6em;
       border-radius: 100%;
       cursor: pointer;
-      box-shadow: 0 1em 1em rgba(0,0,0,0.25);
+      box-shadow: 0 .5em .5em rgba(0,0,0,0.25);
       &:hover{
         transform: scale(1.05);
       }

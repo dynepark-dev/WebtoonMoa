@@ -40,3 +40,18 @@
     }
   }
 }
+@media screen and (max-width:767px) { 
+  .Card{
+    font-size:12px;
+    .wrapper{
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+@media all and (max-width:481px) { 
+  .Card{
+    .wrapper{
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}

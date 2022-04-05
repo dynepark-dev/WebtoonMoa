@@ -21,17 +21,12 @@
         width:100%;
         object-fit: contain;
       }
-      i:hover{
-        cursor: pointer;
-        filter:brightness(1.2);
-        transition: filter 300ms;
-      }
-        .bookmark{
-        position:absolute;
-        font-size: 3em;
-        top:-4px;
-        right: 12px;
-        color:orangered;
+      .bookmark{
+      position:absolute;
+      font-size: 2.5em;
+      top:-1rem;
+      right: 1rem;
+      color:orangered;
       }
       .trashcan{
         position:absolute;
@@ -40,6 +35,11 @@
         right: 12px;
         color:grey;
         opacity: 0.4;
+      }
+      i:hover{
+        cursor: pointer;
+        filter:brightness(1.2);
+        transition: filter 300ms;
       }
     }
     table{
@@ -58,7 +58,6 @@
     }
     .buttons{
       width: 100%;
-      // background-color: orange;
       display: flex;
       gap: .5em;
       margin-top: .5em;
