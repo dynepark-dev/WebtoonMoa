@@ -1,9 +1,11 @@
 import React from "react";
 import styles from "../Styles/New.module.scss";
-import NaverList from "../Components/NaverList";
+import WebtoonsList from "../Components/WebtoonsList";
 import Ribbon from "../Components/Ribbon";
+import data from "../DB/database.json";
 
 function New() {
+  const newToon = data.naver;
   return (
     <div className={styles.New}>
       <Ribbon
@@ -11,7 +13,7 @@ function New() {
         line2="Sign Up ›"
         link="#"
       />
-      <NaverList />
+      <WebtoonsList data={newToon} />
     </div>
   );
 }

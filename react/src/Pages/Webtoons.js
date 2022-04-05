@@ -1,21 +1,13 @@
 import React from "react";
-import Webtoon from "../Components/Webtoon";
 import styles from "../Styles/Webtoons.module.scss";
 import db from "../DB/database.json";
+import WebtoonsList from "../Components/WebtoonsList";
 
 function Webtoons() {
   const data = db.webtoons;
   return (
     <div className={styles.Webtoons}>
-      <div className={styles.wrapper}>
-        <h2>Ongoing Webtoons</h2>
-        <div className={styles.webtoons}>
-          {data.map((webtoon) => (
-            <Webtoon key={webtoon.title} webtoon={webtoon} />
-          ))}
-        </div>
-        <button>더보기</button>
-      </div>
+      <WebtoonsList data={data} />
     </div>
   );
 }
