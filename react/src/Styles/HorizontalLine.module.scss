@@ -1,0 +1,23 @@
+@import "../Variables/variables.scss";
+
+.HorizontalLine {
+	width: 100%;
+	position: relative;
+	div {
+		position: relative;
+		width: 50%;
+		margin: auto;
+		text-align: center;
+		background-color: white;
+		font-size: 0.8em;
+		font-weight: bold;
+		z-index: 1;
+	}
+	hr {
+		position: absolute;
+		width: 100%;
+		top: 50%;
+		border: none;
+		border-top: solid 1px rgba(grey, 0.2);
+	}
+}

@@ -1,0 +1,31 @@
+@import "../Variables/variables.scss";
+
+.Checkbox {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 4px;
+	align-self: flex-start;
+	background-color: #fff;
+	font-size: 1em;
+	input[type="checkbox"] {
+		appearance: none;
+		background-color: white;
+		width: 20px;
+		height: 20px;
+		cursor: pointer;
+		border: 1px solid lightgrey;
+		position: relative;
+		&:checked {
+			border: 1px solid #e63740;
+		}
+		&:checked::after {
+			position: absolute;
+			content: "✔";
+			top: -2px;
+			left: 2px;
+			font-size: 1.2em;
+			color: #e63740;
+		}
+	}
+}
