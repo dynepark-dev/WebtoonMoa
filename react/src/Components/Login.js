@@ -41,7 +41,7 @@ function Login({ onClose }) {
     <div className={styles.Login}>
       <div className={styles.banner}>
         <div className={styles.ad} alt="banner ad">
-          대충 광고 들어가는 곳 {active}
+          대충 광고 들어가는 곳
         </div>
         <div className={styles.close} onClick={onClose}></div>
       </div>

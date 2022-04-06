@@ -4,9 +4,10 @@ $red: #e63740;
 
 .Login {
 	width: 480px;
+	// min-height: 451px;
 	background-color: #fff;
 	display: flex;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
 	flex-direction: column;
 	.banner {
@@ -117,7 +118,7 @@ $red: #e63740;
 			justify-content: center;
 			align-items: center;
 			flex-direction: column;
-			gap: 1rem;
+			gap: 1em;
 			.inputsAndSubmit {
 				width: 100%;
 				display: flex;
@@ -149,7 +150,7 @@ $red: #e63740;
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
-
+				color: $title-black;
 				.checkbox {
 					display: flex;
 					justify-content: center;
@@ -158,28 +159,42 @@ $red: #e63740;
 					align-self: flex-start;
 					background-color: #fff;
 					font-size: 0.8em;
-					color: $text-grey;
 					label {
 						cursor: pointer;
 					}
 				}
 				.find {
-					color: $text-grey;
 					font-size: 0.8em;
 					a {
 						&:first-child::after {
-							margin: 0 1em;
+							margin: 1em;
 							content: "|";
 						}
 					}
 				}
 			}
 			.termsAndCondition {
-				color: $text-grey;
+				color: $title-black;
 				display: flex;
 				gap: 10px;
 				flex-wrap: wrap;
 				font-size: 0.75em;
+			}
+		}
+	}
+}
+
+@media all and (max-width: 500px) {
+	.Login {
+		font-size: 14px;
+		width: 320px;
+		.content {
+			form {
+				gap: 0.5em;
+				.checkboxAndFind {
+					flex-direction: column;
+					gap: 0.5em;
+				}
 			}
 		}
 	}

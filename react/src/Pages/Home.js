@@ -2,7 +2,6 @@ import React from "react";
 import Card from "../Components/Card";
 import Hello from "../Components/Hello";
 import OfficialLink from "../Components/OfficialLink";
-import Qna from "../Components/Qna";
 import styles from "../Styles/Home.module.scss";
 
 function Home() {
@@ -13,7 +12,6 @@ function Home() {
       <div>
         <Card />
       </div>
-      <Qna />
     </div>
   );
 }

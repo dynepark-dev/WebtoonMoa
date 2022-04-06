@@ -1,0 +1,72 @@
+@import "../Variables/variables.scss";
+
+.TermsLaw {
+	background-color: #fff;
+	font-size: 12px;
+	.wrapper {
+		$padding: 5em;
+		position: relative;
+		max-width: $max-width;
+		margin: 0 auto $padding;
+		color: #333;
+		h2 {
+			padding: $padding 0 1em;
+			text-align: center;
+		}
+		button {
+			position: absolute;
+			top: $padding;
+			right: 0;
+			border: solid 1px #dbdee3;
+			cursor: pointer;
+			background: none;
+			color: #585858;
+			padding: 1em 1.5em;
+			border-radius: 2px;
+			&:hover {
+				border: 1px solid lightblue;
+			}
+		}
+		.content {
+			padding: $padding 7em;
+			border: solid 1px #dbdee3;
+			h3 {
+				margin-top: 3em;
+				margin-bottom: 1em;
+			}
+			h4 {
+				margin-top: 2em;
+				margin-bottom: 0.75em;
+			}
+			p {
+				margin: 1em 0;
+				strong {
+					color: #eb0026;
+				}
+			}
+			li {
+				list-style: auto;
+				margin-left: 2em;
+				strong {
+					color: #eb0026;
+				}
+			}
+			.stronger {
+				::marker {
+					color: #eb0026;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.TermsLaw {
+		font-size: 12px;
+		.wrapper {
+			.content {
+				padding: 1em;
+			}
+		}
+	}
+}
