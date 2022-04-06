@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "../Styles/WebtoonsList.module.scss";
+import Button from "./Button";
 import Webtoon from "./Webtoon";
 
 function WebtoonsList({ data }) {
@@ -11,7 +12,7 @@ function WebtoonsList({ data }) {
           <Webtoon key={webtoon.title} webtoon={webtoon} />
         ))}
       </ul>
-      <button>더보기</button>
+      <Button children="더보기" />
     </div>
   );
 }

@@ -14,12 +14,12 @@ function Hello() {
             <Link to="/webtoons?toon=completed">Completed</Link>
           </div>
         </div>
-        <div className={styles.image_wrapper}>
+        {/* <div className={styles.image_wrapper}>
           <img
             src="https://www.karmoy.kommune.no/content/uploads/sites/35/2021/11/manga-eyes-looking-paper-tear-260nw-1523804378.jpg"
             alt="eyes watching"
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );

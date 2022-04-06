@@ -1,36 +1,36 @@
 .HoverButton {
-    position: fixed;
-    bottom: 40px;
-    right: 20px;
-    .buttons{
-        display: flex;
-        flex-direction: column;
-        transition: opacity 300ms;
-    }
-    .show {
-        opacity:1;
-    }
-    .hidden{
-        opacity:0;
-        pointer-events: none;
-    }
-    .plus {
-        transform: rotate(45deg);
-    }
-    button {
-        border: none;
-        cursor: pointer;
-        transition: transform 200ms, background-color 200ms;
-        margin: 2px 0 0 0;
-        color: white;
-        font-size: 12px;
-        font-weight: bold;
-        background-color: rgba(0, 0, 0, 0.5);
-        width: 40px;
-        height: 40px;
-        border-radius: 100%;
-        &:hover {
-            background-color: rgba(0, 0, 0, 0.7);
-        }
-    }
+	position: fixed;
+	bottom: 40px;
+	right: 20px;
+	.buttons {
+		display: flex;
+		flex-direction: column;
+		transition: opacity 300ms;
+	}
+	.show {
+		opacity: 1;
+	}
+	.hidden {
+		opacity: 0;
+		pointer-events: none;
+	}
+	.plus {
+		transform: rotate(45deg);
+	}
+	button {
+		border: none;
+		cursor: pointer;
+		transition: transform 200ms, background-color 200ms;
+		margin: 2px 0 0 0;
+		color: white;
+		font-size: 12px;
+		font-weight: bold;
+		background-color: rgba(0, 0, 0, 0.5);
+		width: 40px;
+		height: 40px;
+		border-radius: 100%;
+		&:hover {
+			background-color: rgba(0, 0, 0, 0.7);
+		}
+	}
 }

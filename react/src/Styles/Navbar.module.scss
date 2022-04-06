@@ -2,114 +2,114 @@
 
 .Navbar {
   width: 100%;
-  background-color: rgba($white, 0.8);
-  backdrop-filter: saturate(180%) blur(20px);
-  box-shadow: 0 0px 6px rgba($black, 0.8);
+  background-color: rgba($white, 1);
+  // backdrop-filter: saturate(180%) blur(20px);
+  box-shadow: 0 0px 1px rgba($black, 0.8);
   position: sticky;
   top: 0;
   z-index: 10;
-  .wrapper{
+  .wrapper {
     margin: auto;
     max-width: $max-width;
     display: flex;
     justify-content: space-between;
-    align-items:center;
-    color: $text-grey;
-    .burger{
+    align-items: center;
+    color: $title-black;
+    .burger {
       padding: 1rem;
       font-size: 1rem;
-      line-height:2rem;
-      display:none;
+      line-height: 2rem;
+      display: none;
       cursor: pointer;
     }
-    .logo{
-      position:relative;
+    .logo {
+      position: relative;
       width: 4rem;
       height: 4rem;
       transform-style: preserve-3d;
       transition: 1000ms;
       border: none;
       img {
-        position:absolute;
+        position: absolute;
         height: 4rem;
         backface-visibility: hidden;
-      };
-      .logo_front{
+      }
+      .logo_front {
         transform: rotateY(-180deg);
       }
     }
-    .flip{
-      transform: rotateY(180deg); 
+    .flip {
+      transform: rotateY(180deg);
     }
     .gnb {
       display: flex;
       justify-content: space-between;
       align-items: center;
       .tab {
-        padding: 1rem;
+        padding: 0.5rem;
         font-size: 1rem;
-        line-height:2rem;
-        white-space: nowrap;
-        font-weight: bold;
-        cursor: pointer; 
-        &:hover{
-          color: $text-blue;
-        }
-      } 
-      .active{
-        color: $text-blue;
-      }
-    }
-    .icons{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      li{
-        color: $title-black;
-        padding: 1rem;
-        font-size: 1rem;
-        line-height:2rem;
+        line-height: 2rem;
         white-space: nowrap;
         font-weight: bold;
         cursor: pointer;
-          &:hover{
-            color: $text-blue;
-          }
-      }      
+        &:hover {
+          color: $text-blue;
+        }
+      }
+      .active {
+        color: $text-blue;
+      }
+    }
+    .icons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      li {
+        color: $title-black;
+        padding: 1rem;
+        font-size: 1rem;
+        line-height: 2rem;
+        white-space: nowrap;
+        font-weight: bold;
+        cursor: pointer;
+        &:hover {
+          color: $text-blue;
+        }
+      }
     }
   }
 }
 
-@media all and (max-width:767px) { 
-  .Navbar{
-    .wrapper{
+@media all and (max-width: 767px) {
+  .Navbar {
+    .wrapper {
       flex-direction: column;
-      .burger{
-        position:fixed;
-        left:0;
-        display:block;
+      .burger {
+        position: fixed;
+        left: 0;
+        display: block;
       }
-      .gnb{
+      .gnb {
         flex-direction: column;
         display: none;
         text-align: center;
         width: 100%;
-        .tab{
+        .tab {
           background-color: rgba($white, 0.8);
           backdrop-filter: saturate(180%) blur(20px);
-          &:hover{
-            filter:brightness(0.9);
+          &:hover {
+            filter: brightness(0.9);
           }
         }
       }
-      .open{
+      .open {
         display: block;
       }
-      .icons{
+      .icons {
         position: fixed;
-        top:0;
-        right:0;
-        .search{
+        top: 0;
+        right: 0;
+        .search {
           display: none;
         }
       }

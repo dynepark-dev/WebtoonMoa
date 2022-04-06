@@ -4,6 +4,8 @@ import styles from "../Styles/Navbar.module.scss";
 import logo from "../Assets/logo.svg";
 import logo_kr from "../Assets/logo_kr.svg";
 import useToggle from "../Hooks/useToggle";
+import Modal from "./Modal";
+import Login from "./Login";
 
 function Navbar() {
   const tabArray = [
@@ -17,6 +19,7 @@ function Navbar() {
 
   const [flip, setFlip] = useToggle(false);
   const [open, setOpen] = useToggle(false);
+  const [modalOpen, setModalOpen] = useToggle(false);
   const [active, setActive] = useToggle(-1);
 
   return (
@@ -55,11 +58,15 @@ function Navbar() {
           <li>
             <i className="fa-solid fa-magnifying-glass"></i>
           </li>
-          <li className={styles.search}>
+          <li className={styles.search} onClick={() => setModalOpen(true)}>
             <i className="fa-solid fa-user"></i>
           </li>
         </ul>
       </div>
+
+      <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
+        <Login onClose={() => setModalOpen(false)} />
+      </Modal>
     </nav>
   );
 }

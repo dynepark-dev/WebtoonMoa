@@ -9,6 +9,8 @@ import Home from "./Pages/Home";
 import NotFound from "./Pages/NotFound";
 import HoverButton from "./Components/HoverButton";
 import WebtoonDetail from "./Pages/WebtoonDetail";
+import Faq from "./Pages/Faq";
+import Terms from "./Pages/Terms";
 
 function App() {
   return (
@@ -18,8 +20,12 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/new" element={<New />} />
+        <Route path="/faq" element={<Faq />} />
         <Route path="/webtoons" element={<Webtoons />} />
         <Route path="/webtoon/:id" element={<WebtoonDetail />} />
+        <Route path="/policy">
+          <Route path="term" element={<Terms />} />
+        </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
       <HoverButton />

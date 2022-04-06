@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../Styles/NotFound.module.scss";
 import { useNavigate } from "react-router-dom";
+import Button from "../Components/Button";
 
 function NotFound() {
   const navigate = useNavigate();
@@ -9,9 +10,7 @@ function NotFound() {
       <h1>404</h1>
       <h2>Ooops!</h2>
       <h4>This page is not available</h4>
-      <button className="primary-button" onClick={() => navigate(-1)}>
-        Go back
-      </button>
+      <Button children="Go Back" click={() => navigate(-1)} />
     </div>
   );
 }
