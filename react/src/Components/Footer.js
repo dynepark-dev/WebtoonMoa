@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../Styles/Footer.module.scss";
 import { Link } from "react-router-dom";
+import Icon from "./Icon";
 
 function Footer() {
   const socialIconsArray = [
@@ -73,11 +74,7 @@ function Footer() {
           <div>Copyright © 2099 All Rights not Reserved by Webtoonmoa.</div>
           <ul className={styles.social_icons}>
             {socialIconsArray.map((item) => (
-              <li className={styles.icon} key={item.id}>
-                <a className={item.name} href={item.link}>
-                  <i className={item.icon}></i>
-                </a>
-              </li>
+              <Icon key={item.id} item={item} />
             ))}
           </ul>
         </div>

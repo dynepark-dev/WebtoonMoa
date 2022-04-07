@@ -1,0 +1,20 @@
+@import "../Variables/variables.scss";
+
+.Icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  height: 2rem;
+  margin: 0 .25rem;
+  cursor: pointer;
+  background-color: $background-lightgrey;
+  border-radius: 50%;
+  transition: filter 300ms;
+  .icon_button{
+    color:$text-grey;
+  }
+  &:hover{
+      filter: brightness(1.2)
+  }
+}

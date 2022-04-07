@@ -1,0 +1,80 @@
+@import "../Variables/variables.scss";
+
+.Loading {
+	$width: 2em;
+	$size: 1em;
+	$move: 2.5em;
+	$color1: #ee4040;
+	$color2: #f37272;
+	.loader {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: $width;
+		height: $width;
+		transform: translate(-50%, -50%) rotate(45deg) translate3d(0, 0, 0);
+		animation: loader 1.2s infinite ease-in-out;
+		span {
+			position: absolute;
+			display: block;
+			width: $size;
+			height: $size;
+			background-color: $color1;
+			animation: loaderBlock 1.2s infinite ease-in-out both;
+			&:nth-child(1) {
+				top: 0;
+				left: 0;
+			}
+			&:nth-child(2) {
+				top: 0;
+				right: 0;
+				animation: loaderBlockInverse 1.2s infinite ease-in-out both;
+			}
+			&:nth-child(3) {
+				bottom: 0;
+				left: 0;
+				animation: loaderBlockInverse 1.2s infinite ease-in-out both;
+			}
+			&:nth-child(4) {
+				bottom: 0;
+				right: 0;
+			}
+		}
+	}
+	@keyframes loader {
+		0%,
+		10%,
+		100% {
+			width: $width;
+			height: $width;
+		}
+		65% {
+			width: $move;
+			height: $move;
+		}
+	}
+	@keyframes loaderBlock {
+		0%,
+		30% {
+			transform: rotate(0);
+		}
+		55% {
+			background-color: $color2;
+		}
+		100% {
+			transform: rotate(90deg);
+		}
+	}
+	@keyframes loaderBlockInverse {
+		0%,
+		20% {
+			transform: rotate(0);
+		}
+		55% {
+			background-color: $color2;
+		}
+		100% {
+			transform: rotate(-90deg);
+		}
+	}
+}
