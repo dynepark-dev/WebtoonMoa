@@ -4,13 +4,13 @@
   background-color: white;
   max-width: $max-width;
   margin: 12px auto;
-  padding: 1rem .5rem;
+  padding: 1rem 0.5rem;
   border-radius: 12px;
-  box-shadow: 0 0 10px 10px rgba(0,0,0,0.5);
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction:column;
+  flex-direction: column;
   h2 {
     padding-bottom: 1rem;
   }
@@ -19,12 +19,12 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: .5rem;
+    gap: 0.5rem;
     margin-bottom: 1rem;
   }
 }
-@media all and (max-width:767px) { 
-  .NaverList  {
+@media all and (max-width: 767px) {
+  .NaverList {
     font-size: 12px;
   }
 }

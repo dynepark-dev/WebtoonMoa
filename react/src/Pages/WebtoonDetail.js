@@ -46,7 +46,7 @@ function WebtoonDetail() {
             )}
           </div>
           <div className={styles.trashcan}>
-            <i class="fa-solid fa-trash" />
+            <i className="fa-solid fa-trash" />
           </div>
         </div>
         <table>

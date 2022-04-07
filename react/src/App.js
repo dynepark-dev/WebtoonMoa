@@ -11,6 +11,8 @@ import HoverButton from "./Components/HoverButton";
 import WebtoonDetail from "./Pages/WebtoonDetail";
 import Faq from "./Pages/Faq";
 import Terms from "./Pages/Terms";
+import Privacy from "./Pages/Privacy";
+import Teenager from "./Pages/Teenager";
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
         <Route path="/webtoon/:id" element={<WebtoonDetail />} />
         <Route path="/policy">
           <Route path="term" element={<Terms />} />
+          <Route path="privacy" element={<Privacy />} />
+          <Route path="teenager" element={<Teenager />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

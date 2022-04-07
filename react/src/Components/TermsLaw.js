@@ -895,7 +895,7 @@ function TermsLaw() {
                 "회원"은 다음 각 목의 어느 하나에 해당하는 경우에는 "회사"의
                 의사에 반하여 "코인"에 대한 청약철회를 할 수 없습니다.
               </strong>
-              <ol class="law__removeListStyle">
+              <ol className={styles.lawRemoveListStyle}>
                 <li>
                   <strong>가. "회원"이 "코인"을 일부 사용한 경우</strong>
                 </li>
@@ -951,7 +951,7 @@ function TermsLaw() {
                 "회원"은 다음 각 목의 어느 하나에 해당하는 경우에는 "회사"의
                 의사에 반하여 "유료 콘텐츠"에 대한 청약철회를 할 수 없습니다.
               </strong>
-              <ol class="law__removeListStyle">
+              <ol className={styles.lawRemoveListStyle}>
                 <li>
                   <strong>
                     가. 이용계약을 체결한 즉시 열람되는 "유료 콘텐츠"

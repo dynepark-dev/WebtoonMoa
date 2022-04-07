@@ -1,0 +1,85 @@
+@import "../Variables/variables.scss";
+
+.Teenager {
+	background-color: #fff;
+	font-size: 16px;
+	.wrapper {
+		$padding: 5em;
+		position: relative;
+		max-width: $max-width;
+		margin: 0 auto $padding;
+		color: #333;
+		button {
+			position: absolute;
+			top: $padding;
+			right: 0;
+			border: solid 1px #dbdee3;
+			cursor: pointer;
+			background: none;
+			color: #585858;
+			padding: 1em 1.5em;
+			border-radius: 2px;
+			&:hover {
+				border: 1px solid lightblue;
+			}
+		}
+		h2 {
+			padding: $padding 0 1em;
+			text-align: center;
+		}
+		h3 {
+			font-size: 1em;
+			margin-top: 1.875em;
+			margin-bottom: 0.375em;
+			line-height: 1.2;
+			font-weight: bold;
+		}
+		p {
+			font-size: 0.8125em;
+		}
+		.content {
+			padding: 70px 100px;
+			background-color: #fff;
+			border: solid 1px #dbdee3;
+			ul {
+				padding-left: 1em;
+				margin-top: 0.5em;
+				li {
+					list-style: inside;
+					line-height: 1.6;
+					overflow-wrap: break-word;
+				}
+			}
+			.lawTable {
+				min-width: 640px;
+				border-collapse: collapse;
+				margin: 1em auto;
+				border: 1px solid #ccc;
+				font-size: 13px;
+				th {
+					border-collapse: collapse;
+					min-width: 160px;
+					padding: 0.5em;
+					border: 1px solid #ccc;
+					background-color: #efefef;
+				}
+				td {
+					min-width: 160px;
+					padding: 0.5em;
+					border: 1px solid #ccc;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.Privacy {
+		font-size: 12px;
+		.wrapper {
+			.content {
+				padding: 1em;
+			}
+		}
+	}
+}
