@@ -1,12 +1,20 @@
 const express = require("express");
+const mongoose = require("mongoose");
 const app = express();
+const webtoonRoutes = require("./routes/webtoon.routes");
 const cors = require("cors");
 require("dotenv").config();
 const PORT = process.env.PORT || 3001;
 const { getUpdatedList, Update } = require("./controllers/naver");
 const cache = require("./middleware/routeCache");
 
-app.use(cors({ origin: "*" }));
+// Middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cors({ origin: ORIGIN, credentials: true }));
+
+// Routes
+app.use("/webtoon", webtoonRoutes);
 
 app.get("/", (req, res) => {
   res.send(`Hello World! Hello ${process.env.NAME}~!!!!`);
@@ -23,6 +31,11 @@ app.get("/webtoons", cache(3000), async (req, res) => {
   res.json(webtoons);
 });
 
-app.listen(PORT, () => {
-  console.log(`port: ${PORT}`);
-});
+// DB
+mongoose
+  .connect(MONGODB_URI)
+  .then(() =>
+    app.listen(PORT, () => console.log(`server running on port ${PORT}`))
+  )
+  .catch((error) => console.log(error.message));
+//
