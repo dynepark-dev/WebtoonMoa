@@ -1,43 +1,43 @@
-@import '../Variables/variables.scss';
+@import "../Variables/variables.scss";
 
-.Ribbon{
+.Ribbon {
   width: 100%;
-  background-color: #F8F8F9;
+  background-color: #f8f8f9;
   overflow: hidden;
-  .wrapper{
+  .wrapper {
     background-color: $background-blue;
-    color:white;
+    color: white;
     text-align: center;
     padding: 1em 0;
     font-size: 14px;
     animation: moveDown 1s, background 1s 2s;
     animation-fill-mode: forwards;
-    animation-timing-function: ease-in-out;  
-    .link{
+    animation-timing-function: ease-in-out;
+    .link {
       margin-left: 8px;
       animation: blue 1s 2s;
       animation-fill-mode: forwards;
-      animation-timing-function: ease-in-out;  
+      animation-timing-function: ease-in-out;
     }
   }
 }
 
 @keyframes moveDown {
-  0%{
-    transform: translateY(-100%)  ;
+  0% {
+    transform: translateY(-100%);
   }
-  100%{
+  100% {
     transform: translateX(0);
   }
 }
 @keyframes background {
-  100%{
-    background-color: #F8F8F9;
-    color:$title-black;
+  100% {
+    background-color: #f8f8f9;
+    color: $title-black;
   }
 }
 @keyframes blue {
-  100%{
-    color:$text-blue;
+  100% {
+    color: $text-blue;
   }
 }

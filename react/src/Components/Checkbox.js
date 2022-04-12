@@ -5,7 +5,7 @@ function Checkbox({ id, content, required }) {
   return (
     <div className={styles.Checkbox}>
       <input required={required && true} type="checkbox" id={id} />
-      <label for={id}>{content}</label>
+      <label htmlFor={id}>{content}</label>
     </div>
   );
 }

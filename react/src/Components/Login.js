@@ -62,7 +62,7 @@ function Login({ onClose }) {
         />
         <div className={styles.sns}>
           {oAuthArray.map((item) => (
-            <img src={item.logo} alt={item.name} />
+            <img key={item.name} src={item.logo} alt={item.name} />
           ))}
         </div>
         <HorizontalLine
