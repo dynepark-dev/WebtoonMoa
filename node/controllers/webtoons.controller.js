@@ -29,7 +29,6 @@ const getWebtoons = async (req, res) => {
 };
 
 const getWebtoonsUpdated = async (req, res) => {
-  const limit = 8;
   try {
     results = await Webtoon.find({}).sort({ updated: -1 }).limit(limit).exec();
     res.status(200).json(results);
@@ -40,7 +39,6 @@ const getWebtoonsUpdated = async (req, res) => {
 
 const getWebtoonsRecommended = async (req, res) => {
   const genre = req.query.genre;
-  const limit = 8;
   try {
     const count = await Webtoon.countDocuments({ genre });
     const random = Math.floor(Math.random() * count);
@@ -53,7 +51,6 @@ const getWebtoonsRecommended = async (req, res) => {
 
 const getWebtoonsFiltered = async (req, res) => {
   const page = parseInt(req.query.page);
-  const limit = parseInt(req.query.limit);
   let { category, platform, days, genre, age, consonant } = req.query;
   const startIndex = (page - 1) * limit;
   const endIndex = page * limit;
@@ -120,10 +117,8 @@ const getBookmarked = async (req, res) => {
   const ids = req.query.ids.split(",");
   try {
     const webtoons = await Webtoon.find({ _id: { $in: ids } });
-    log.info(`GET / 200 get bookmarked webtoon.`);
     res.status(200).json(webtoons);
   } catch (error) {
-    log.error(`GET / 409 get bookmarked webtoon. ${error.message}`);
     res.status(409).json({ message: error.message });
   }
 };
