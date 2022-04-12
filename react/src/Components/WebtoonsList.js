@@ -6,16 +6,11 @@ import Webtoon from "./Webtoon";
 
 function WebtoonsList({ data }) {
   return (
-    <div className={styles.WebtoonsList}>
-      <h2>Ongoing Webtoons</h2>
-      <Filter />
-      <ul className={styles.webtoons}>
-        {data?.map((webtoon) => (
-          <Webtoon key={webtoon.title} webtoon={webtoon} />
-        ))}
-      </ul>
-      <Button children="더보기" />
-    </div>
+    <ul className={styles.WebtoonsList}>
+      {data?.map((webtoon) => (
+        <Webtoon key={webtoon.title} webtoon={webtoon} />
+      ))}
+    </ul>
   );
 }
 

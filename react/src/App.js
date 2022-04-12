@@ -13,6 +13,7 @@ import Faq from "./Pages/Faq";
 import Terms from "./Pages/Terms";
 import Privacy from "./Pages/Privacy";
 import Teenager from "./Pages/Teenager";
+import My from "./Pages/My";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/new" element={<New />} />
         <Route path="/faq" element={<Faq />} />
         <Route path="/webtoons" element={<Webtoons />} />
+        <Route path="/my" element={<My />} />
         <Route path="/webtoon/:id" element={<WebtoonDetail />} />
         <Route path="/policy">
           <Route path="term" element={<Terms />} />

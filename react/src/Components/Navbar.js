@@ -14,7 +14,8 @@ function Navbar() {
     { id: 2, title: "완결웹툰", link: "webtoons?type=finished" },
     { id: 3, title: "성인웹툰", link: "/webtoons?type=adult" },
     { id: 4, title: "BL/GL", link: "/webtoons?type=blgl" },
-    { id: 5, title: "커뮤니티", link: "/community" },
+    { id: 5, title: "MyPage", link: "/my" },
+    { id: 6, title: "커뮤니티", link: "/community" },
   ];
 
   const [flip, setFlip] = useToggle(false);
