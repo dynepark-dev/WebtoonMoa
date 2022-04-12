@@ -1,0 +1,48 @@
+@hostname = http://localhost:3001
+@content-type = application/json
+
+
+GET {{hostname}}
+
+###
+
+GET {{hostname}}/webtoon HTTP/1.1
+
+### AUTH user Signin
+POST {{hostname}}/signup HTTP/1.1
+Content-Type: {{content-type}}
+
+{
+    "username": "tester1",
+    "email": "tester1@gmail.com",
+    "password": "123123123q",
+    "confirmPassword": "123123123q"
+}
+
+### AUTH user Login
+POST {{hostname}}/login HTTP/1.1
+Content-Type: {{content-type}}
+
+{
+    "email": "tester@gmail.com",
+    "password": "123123123q"
+}
+
+### WEBTOON post webtoon
+POST {{hostname}}/webtoon HTTP/1.1
+Content-Type: {{content-type}}
+
+{
+    "title": "webtoon test",
+    "platform": "카카오",
+    "category": "completed",
+    "author": ["authorA", "authorB"],
+    "genre": ["드라마", "로맨스"],
+    "days": ["월","화"],
+    "image": "webtoontestimage",
+    "url": "webtoontesturl"
+}
+
+### WEBTOON get webtoon
+GET {{hostname}}/webtoon?page=1&category=completed HTTP/1.1
+Content-Type: {{content-type}}
