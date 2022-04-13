@@ -6,8 +6,11 @@ import logo_kr from "../Assets/logo_kr.svg";
 import useToggle from "../Hooks/useToggle";
 import Modal from "./Modal";
 import Login from "./Login";
+import { useUserContext } from "../Context/UserContext";
 
 function Navbar() {
+  const { user } = useUserContext();
+
   const tabArray = [
     { id: 0, title: "최신웹툰", link: "/new" },
     { id: 1, title: "연재웹툰", link: "/webtoons?type=ongoing" },
@@ -59,9 +62,15 @@ function Navbar() {
           <li>
             <i className="fa-solid fa-magnifying-glass"></i>
           </li>
-          <li className={styles.search} onClick={() => setModalOpen(true)}>
-            <i className="fa-solid fa-user"></i>
-          </li>
+          {user.email !== "" ? (
+            <li>
+              <i className="fa-solid fa-face-smile"></i>
+            </li>
+          ) : (
+            <li className={styles.search} onClick={() => setModalOpen(true)}>
+              <i className="fa-solid fa-user"></i>
+            </li>
+          )}
         </ul>
       </div>
 

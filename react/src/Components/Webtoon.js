@@ -6,7 +6,7 @@ import Platform from "./Platform";
 function Webtoon({ webtoon }) {
   return (
     <li className={styles.Webtoon}>
-      {"episodeTitle" in webtoon == true ? (
+      {"episodeTitle" in webtoon === true ? (
         <a
           href={`https://comic.naver.com${webtoon.link}`}
           target="_blank"

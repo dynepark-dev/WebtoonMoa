@@ -7,8 +7,8 @@ const UserSchema = new Schema({
   username: {
     type: String,
     required: [true, "username is required"],
-    minlength: [2, "minimum 2 characters required"],
-    maxlength: [12, "maximum 12 characters required"],
+    minlength: [2, "minimum 2 characters"],
+    maxlength: [12, "maximum 12 characters"],
   },
   email: {
     type: String,
@@ -20,7 +20,8 @@ const UserSchema = new Schema({
   password: {
     type: String,
     required: [true, "password is required"],
-    minlength: [8, "minimum 8 characters required"],
+    minlength: [8, "minimum 8 characters"],
+    maxlength: [16, "maximum 16 characters"],
   },
   bookmark: [String],
   joinedAt: { type: Date, immutable: true, default: () => Date.now() },
@@ -46,19 +47,6 @@ async function verfiyUser(password, checkPassword, user) {
   }
   throw Error("incorrect password");
 }
-
-// which one is better?
-// UserSchema.statics.login = async function (email, password) {
-//     const user = await this.findOne({ email });
-//     if (user) {
-//         const auth = await argon2.verify(user.password, password);
-//         if (auth) {
-//             return user;
-//         }
-//         throw Error("incorrect password");
-//     }
-//     throw Error("incorrect email");
-// };
 
 const User = mongoose.model("user", UserSchema);
 module.exports = User;

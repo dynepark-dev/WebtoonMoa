@@ -14,28 +14,31 @@ import Terms from "./Pages/Terms";
 import Privacy from "./Pages/Privacy";
 import Teenager from "./Pages/Teenager";
 import My from "./Pages/My";
+import { UserProvider } from "./Context/UserContext";
 
 function App() {
   return (
     <div className="App">
-      {/* <Aside /> */}
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/new" element={<New />} />
-        <Route path="/faq" element={<Faq />} />
-        <Route path="/webtoons" element={<Webtoons />} />
-        <Route path="/my" element={<My />} />
-        <Route path="/webtoon/:id" element={<WebtoonDetail />} />
-        <Route path="/policy">
-          <Route path="term" element={<Terms />} />
-          <Route path="privacy" element={<Privacy />} />
-          <Route path="teenager" element={<Teenager />} />
-        </Route>
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-      <HoverButton />
-      <Footer />
+      <UserProvider>
+        {/* <Aside /> */}
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/new" element={<New />} />
+          <Route path="/faq" element={<Faq />} />
+          <Route path="/webtoons" element={<Webtoons />} />
+          <Route path="/my" element={<My />} />
+          <Route path="/webtoon/:id" element={<WebtoonDetail />} />
+          <Route path="/policy">
+            <Route path="term" element={<Terms />} />
+            <Route path="privacy" element={<Privacy />} />
+            <Route path="teenager" element={<Teenager />} />
+          </Route>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <HoverButton />
+        <Footer />
+      </UserProvider>
     </div>
   );
 }

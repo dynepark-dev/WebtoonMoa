@@ -130,8 +130,9 @@ $red: #e63740;
 						width: 100%;
 						border: 1px solid lightgrey;
 						font-size: 0.8em;
-						&:first-child {
-							margin-bottom: 4px;
+						margin-bottom: 4px;
+						&:last-child {
+							margin-bottom: 0;
 						}
 					}
 				}
