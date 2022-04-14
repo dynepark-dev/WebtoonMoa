@@ -6,11 +6,10 @@ import logo_kr from "../Assets/logo_kr.svg";
 import useToggle from "../Hooks/useToggle";
 import Modal from "./Modal";
 import Login from "./Login";
-import { useUserContext } from "../Context/UserContext";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../Redux/actions";
 
 function Navbar() {
-  const { user } = useUserContext();
-
   const tabArray = [
     { id: 0, title: "최신웹툰", link: "/new" },
     { id: 1, title: "연재웹툰", link: "/webtoons?type=ongoing" },
@@ -20,14 +19,16 @@ function Navbar() {
     { id: 5, title: "MyPage", link: "/my" },
     { id: 6, title: "커뮤니티", link: "/community" },
   ];
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.reducerUser);
 
   const [flip, setFlip] = useToggle(false);
   const [open, setOpen] = useToggle(false);
   const [modalOpen, setModalOpen] = useToggle(false);
   const [active, setActive] = useToggle(-1);
-
   return (
     <nav className={styles.Navbar}>
+      {user.email}
       <div className={styles.wrapper}>
         <div className={styles.burger} onClick={() => setOpen()}>
           <i className="fa-solid fa-bars"></i>
@@ -62,9 +63,9 @@ function Navbar() {
           <li>
             <i className="fa-solid fa-magnifying-glass"></i>
           </li>
-          {user.email !== "" ? (
-            <li>
-              <i className="fa-solid fa-face-smile"></i>
+          {user._id ? (
+            <li onClick={() => dispatch(logout())}>
+              <i className="fa-solid fa-caret-down"></i>
             </li>
           ) : (
             <li className={styles.search} onClick={() => setModalOpen(true)}>

@@ -1,15 +1,14 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import useToggle from "../Hooks/useToggle";
 import styles from "../Styles/Login.module.scss";
 import Checkbox from "./Checkbox";
 import HorizontalLine from "./HorizontalLine";
-import { api_signup, api_login } from "../API/index";
-import { useUserContext } from "../Context/UserContext";
+import { useDispatch } from "react-redux";
+import { login, signup } from "../Redux/actions";
 
 function Login({ onClose }) {
-  const { user, setUser } = useUserContext();
-
+  const dispatch = useDispatch();
   const oAuthArray = [
     {
       id: 0,
@@ -43,12 +42,13 @@ function Login({ onClose }) {
   const [active, setActive] = useToggle(0);
   const isLogin = active === 0;
 
-  const [inputValue, setInputValue] = useState({
+  const newUser = {
     username: "NewUser",
     email: "",
     password: "",
     confirmPassword: "",
-  });
+  };
+  const [inputValue, setInputValue] = useState(newUser);
 
   const onChange = (e) => {
     setInputValue({ ...inputValue, [e.target.name]: e.target.value });
@@ -57,30 +57,15 @@ function Login({ onClose }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isLogin) {
-      api_login(inputValue)
-        .then((res) => {
-          setUser(res.data);
-          alert(`환영합니다!`);
-          onClose();
-        })
-        .catch((err) => {
-          console.log(err);
-          alert(err);
-        });
+      dispatch(login(inputValue));
+      onClose();
     } else {
-      api_signup(inputValue)
-        .then((res) => {
-          alert(`${res.data}로 회원가입 되었습니다. 다시 로그인해주세요`);
-          setInputValue({ ...inputValue, password: "" });
-          setActive(0);
-        })
-        .catch((err) => {
-          console.log(err);
-          alert(err);
-        });
+      dispatch(signup(inputValue));
+      setInputValue(newUser);
+      setActive(0);
     }
   };
-
+  console.log(inputValue);
   return (
     <div className={styles.Login}>
       <Banner onClose={onClose} />
@@ -152,6 +137,7 @@ function InputsAndSubmit({ isLogin, handleSubmit, onChange, inputValue }) {
           name="email"
           type="email"
           required
+          value={inputValue.email}
           onChange={onChange}
           placeholder="이메일 또는 휴대폰 아이디"
         />

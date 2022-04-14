@@ -15,5 +15,16 @@ export const api_signup = async (input) =>
 export const api_login = async (input) =>
   await axios.post(`${url}/login`, input, { withCredentials: true });
 
-export const api_logout = async (input) =>
-  await axios.post(`${url}/logout`, { withCredentials: true });
+export const api_logout = async () =>
+  await axios.get(`${url}/logout`, { withCredentials: true });
+
+// user
+export const api_check_login = async () =>
+  await axios.get(`${url}/check`, { withCredentials: true });
+
+export const api_patch_user = async (webtoon_id) =>
+  await axios.patch(
+    `${url}/user/bookmark`,
+    { webtoon_id },
+    { withCredentials: true }
+  );
