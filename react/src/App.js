@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.scss";
-import Aside from "./Components/Aside";
 import Footer from "./Components/Footer";
 import Navbar from "./Components/Navbar";
 import New from "./Pages/New";
@@ -25,13 +24,12 @@ function App() {
       dispatch({ type: LOGIN, payload: res.data });
     })
     .catch((err) => {
-      console.log("no user");
+      console.log(err);
       dispatch({ type: LOGOUT });
     });
 
   return (
     <div className="App">
-      {/* <Aside /> */}
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
