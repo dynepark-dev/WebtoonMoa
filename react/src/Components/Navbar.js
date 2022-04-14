@@ -24,9 +24,9 @@ function Navbar() {
   const [open, setOpen] = useToggle(false);
   const [modalOpen, setModalOpen] = useToggle(false);
   const [active, setActive] = useToggle(-1);
+
   return (
     <nav className={styles.Navbar}>
-      {user.email}
       <div className={styles.wrapper}>
         <div className={styles.burger} onClick={() => setOpen()}>
           <i className="fa-solid fa-bars"></i>
@@ -57,7 +57,7 @@ function Navbar() {
             </Link>
           ))}
         </ul>
-        <NavbarIcons />
+        <NavbarIcons loginOpen={() => setModalOpen(true)} />
       </div>
       <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
         <Login onClose={() => setModalOpen(false)} />

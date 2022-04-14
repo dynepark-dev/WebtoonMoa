@@ -5,7 +5,7 @@ function Teenager() {
   return (
     <div className={styles.Teenager}>
       <div className={styles.wrapper}>
-        <h2>개인정보 처리방침</h2>
+        <h2>청소년 보호정책</h2>
         <button onClick={() => window.print()}>인쇄하기</button>
         <div className={styles.content}>
           <p>

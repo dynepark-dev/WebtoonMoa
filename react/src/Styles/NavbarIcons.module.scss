@@ -14,7 +14,13 @@
   color: var(--text-color);
   height: 100%;
   display: flex;
+
+  i {
+    font-size: 16px;
+  }
+
   .NavItem {
+    cursor: pointer;
     width: calc(var(--nav-size) * 0.8);
     display: flex;
     align-items: center;
@@ -36,7 +42,6 @@
           border-bottom: 1px solid var(--bg-accent);
         }
       }
-      // }
     }
   }
 
@@ -57,16 +62,11 @@
     }
   }
 
-  i {
-    font-size: 16px;
-  }
-
   .menuItem {
     height: 50px;
     display: flex;
     align-items: center;
-    // justify-content: space-between;
-    border-radius: var(--border-radius);
+    // border-radius: var(--border-radius);
     transition: background var(--speed);
     padding: 0.5rem;
     .iconLeft {

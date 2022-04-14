@@ -39,7 +39,7 @@ function App() {
         <Route path="/my" element={<My />} />
         <Route path="/webtoon/:id" element={<WebtoonDetail />} />
         <Route path="/policy">
-          <Route path="term" element={<Terms />} />
+          <Route path="terms" element={<Terms />} />
           <Route path="privacy" element={<Privacy />} />
           <Route path="teenager" element={<Teenager />} />
         </Route>
