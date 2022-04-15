@@ -1,0 +1,126 @@
+@import "../Variables/variables.scss";
+
+.NavbarIcons {
+  // --bg: #242526;
+  // --bg-accent: #484a4d;
+  // --text-color: #dadce1;
+  --bg: #fff;
+  --bg-accent: #d2d2d2;
+  --text-color: black;
+  --nav-size: 60px;
+  --border-radius: 8px;
+  --speed: 400ms;
+
+  color: var(--text-color);
+  height: 100%;
+  display: flex;
+
+  i {
+    font-size: 16px;
+  }
+
+  .NavItem {
+    cursor: pointer;
+    width: calc(var(--nav-size) * 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .dropdown {
+      position: absolute;
+      top: 58px;
+      width: 300px;
+      transform: translateX(-45%);
+      background-color: var(--bg);
+      border: 1px solid --var(--bg-accent);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      transition: height var(--speed) ease;
+      .menu {
+        width: 100%;
+        hr {
+          border-top: none;
+          border-bottom: 1px solid var(--bg-accent);
+        }
+      }
+    }
+  }
+
+  .iconLeft {
+    --button-size: calc(var(--nav-size) * 0.5);
+    width: var(--button-size);
+    height: var(--button-size);
+    background-color: var(--bg-accent);
+    border-radius: 50%;
+    padding: 5px;
+    margin: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: filter 300ms;
+    &:hover {
+      filter: brightness(1.2);
+    }
+  }
+
+  .menuItem {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    // border-radius: var(--border-radius);
+    transition: background var(--speed);
+    padding: 0.5rem;
+    .iconLeft {
+      margin-right: 0.5rem;
+      &:hover {
+        filter: none;
+      }
+    }
+    &:hover {
+      background-color: var(--bg-accent);
+    }
+    .iconRight {
+      margin-left: auto;
+      margin-right: 4px;
+    }
+    .iconText {
+      display: flex;
+      flex-direction: column;
+      .subtitle {
+        margin: 4px 0 0 4px;
+        font-size: 0.75rem;
+      }
+    }
+  }
+}
+
+// CSSTransition
+.menuPrimaryEnter {
+  position: absolute;
+  transform: translateX(-110%);
+}
+.menuPrimaryEnterActive {
+  transform: translateX(0%);
+  transition: all var(--speed) ease;
+}
+.menuPrimaryExit {
+  position: absolute;
+}
+.menuPrimaryExitActive {
+  transform: translateX(-110%);
+  transition: all var(--speed) ease;
+}
+
+.menuSecondaryEnter {
+  transform: translateX(110%);
+}
+.menuSecondaryEnterActive {
+  transform: translateX(0%);
+  transition: all var(--speed) ease;
+}
+.menuSecondaryExit {
+  color: inherit;
+}
+.menuSecondaryExitActive {
+  transform: translateX(110%);
+  transition: all var(--speed) ease;
+}

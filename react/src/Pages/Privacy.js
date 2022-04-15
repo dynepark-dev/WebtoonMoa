@@ -580,7 +580,7 @@ function Privacy() {
           <h3>이전 개인정보 처리방침</h3>
           <ul>
             <li>
-              <a href="#">시행일자: 2022년 4월 20일</a>
+              <a href="/empty">시행일자: 2022년 4월 20일</a>
             </li>
           </ul>
         </div>

@@ -6,6 +6,8 @@ import logo_kr from "../Assets/logo_kr.svg";
 import useToggle from "../Hooks/useToggle";
 import Modal from "./Modal";
 import Login from "./Login";
+import { useSelector } from "react-redux";
+import NavbarIcons from "./NavbarIcons";
 
 function Navbar() {
   const tabArray = [
@@ -17,7 +19,7 @@ function Navbar() {
     { id: 5, title: "MyPage", link: "/my" },
     { id: 6, title: "커뮤니티", link: "/community" },
   ];
-
+  const user = useSelector((state) => state.reducerUser);
   const [flip, setFlip] = useToggle(false);
   const [open, setOpen] = useToggle(false);
   const [modalOpen, setModalOpen] = useToggle(false);
@@ -55,16 +57,8 @@ function Navbar() {
             </Link>
           ))}
         </ul>
-        <ul className={styles.icons}>
-          <li>
-            <i className="fa-solid fa-magnifying-glass"></i>
-          </li>
-          <li className={styles.search} onClick={() => setModalOpen(true)}>
-            <i className="fa-solid fa-user"></i>
-          </li>
-        </ul>
+        <NavbarIcons loginOpen={() => setModalOpen(true)} />
       </div>
-
       <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
         <Login onClose={() => setModalOpen(false)} />
       </Modal>

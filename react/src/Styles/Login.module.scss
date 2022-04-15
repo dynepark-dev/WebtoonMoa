@@ -23,7 +23,7 @@ $red: #e63740;
 			background-color: $red;
 		}
 		.close {
-			$width: 1.2rem;
+			$width: 20px;
 			position: absolute;
 			cursor: pointer;
 			top: 0;
@@ -36,7 +36,8 @@ $red: #e63740;
 			&:after {
 				position: absolute;
 				top: 0;
-				right: calc($width/2);
+				// right: calc($width / 2); bug!?!
+				right: 10px;
 				width: 1px;
 				height: 100%;
 				content: "";
@@ -130,8 +131,9 @@ $red: #e63740;
 						width: 100%;
 						border: 1px solid lightgrey;
 						font-size: 0.8em;
-						&:first-child {
-							margin-bottom: 4px;
+						margin-bottom: 4px;
+						&:last-child {
+							margin-bottom: 0;
 						}
 					}
 				}
