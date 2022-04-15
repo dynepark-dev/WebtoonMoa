@@ -72,7 +72,7 @@ function Webtoons() {
             setData={setGenre}
           />
         </div>
-        <WebtoonsList data={data.data} />
+        <WebtoonsList data={data} />
         <LoadingAndError loading={loading} error={error} data={data} />
         <Button
           children="더보기"

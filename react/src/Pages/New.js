@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../Styles/New.module.scss";
 import WebtoonsList from "../Components/WebtoonsList";
 import Ribbon from "../Components/Ribbon";
@@ -23,7 +23,7 @@ function New() {
   ];
   const [platform, setPlatform] = useState(["네이버"]);
   const [data, loading, error] = useFetchNewWebtoon(platform);
-
+  console.log(platform);
   return (
     <div className={styles.New}>
       <Ribbon
@@ -39,7 +39,7 @@ function New() {
           data={platform}
           setData={setPlatform}
         />
-        <WebtoonsList data={data.data} />
+        <WebtoonsList data={data} />
         <LoadingAndError loading={loading} error={error} data={data} />
       </div>
     </div>

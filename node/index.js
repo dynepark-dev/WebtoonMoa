@@ -39,7 +39,7 @@ mongoose
 app.use(authRoutes);
 app.use("/user", userRoutes);
 app.use("/new", cache(3000), newRoutes);
-app.use("/webtoon", webtoonRoutes);
+app.use("/webtoons", webtoonRoutes);
 app.use("/comment", commentRoutes);
 app.use("/article", articleRoutes);
 app.get("/check", checkUser, (req, res) => {

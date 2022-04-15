@@ -1,27 +1,30 @@
 const Webtoon = require("../models/webtoon.model");
+const sample = require("./sample.json");
 
 const getWebtoons = async (req, res) => {
   const page = parseInt(req.query.page);
   const limit = 20;
   const category = req.query.category;
-  const startIndex = (page - 1) * limit;
-  const endIndex = page * limit;
-  const results = {};
+  // const startIndex = (page - 1) * limit;
+  // const endIndex = page * limit;
+  // const results = {};
 
-  const total = await Webtoon.countDocuments({ category }).exec();
-  results.meta = setMeta();
+  // const total = await Webtoon.countDocuments({ category }).exec();
+  // results.meta = setMeta();
 
-  function setMeta() {
-    if (endIndex < total) return { nextPage: page + 1, limit, total };
-    if (startIndex > 0) return { previousPage: page - 1, limit, total };
-    return { limit, total };
-  }
+  // function setMeta() {
+  //   if (endIndex < total) return { nextPage: page + 1, limit, total };
+  //   if (startIndex > 0) return { previousPage: page - 1, limit, total };
+  //   return { limit, total };
+  // }
 
   try {
-    results.data = await Webtoon.find({ category })
-      .limit(limit)
-      .skip(startIndex)
-      .exec();
+    // results.data = await Webtoon.find({ category })
+    //   .limit(limit)
+    //   .skip(startIndex)
+    //   .exec();
+    results = sample.webtoons.slice(1, 20);
+    console.log("webtoons GET");
     res.status(200).json(results);
   } catch (error) {
     res.status(404).json({ message: error.message });

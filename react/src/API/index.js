@@ -37,11 +37,11 @@ export const api_patch_user = async (webtoon_id) =>
 //     { withCredentials: true }
 //   );
 export const api_webtoons = async (category, page) =>
-  await axios.get(`${url}/webtoon?category=${category}&page=${page}`, {
+  await axios.get(`${url}/webtoons?category=${category}&page=${page}`, {
     withCredentials: true,
   });
 
 export const api_new_webtoons = async (platform) =>
-  await axios.get(`${url}/new?platform=${platform}`, {
+  await axios.get(`${url}/new/${platform}`, {
     withCredentials: true,
   });
