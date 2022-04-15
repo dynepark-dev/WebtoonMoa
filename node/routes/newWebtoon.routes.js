@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const router = Router();
 
-const newController = require("../controllers/new.controller");
+const newController = require("../controllers/newWebtoon.controller");
 
 router.get("/:platform", newController.getNewWebtoons);
 

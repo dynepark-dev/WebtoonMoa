@@ -16,11 +16,11 @@ const getUpdatedList = async () => {
   const $webtoonList = $(".ico_updt");
   const webtoonsLength = $webtoonList.length;
   console.log(`Updated Naver webtoons: ${webtoonsLength}`);
-  return [$, $webtoonList];
+  return [webtoonsLength, $, $webtoonList];
 };
 
 const getPrimaryData = async () => {
-  const [$, $webtoonList] = await getUpdatedList();
+  const [webtoonsLength, $, $webtoonList] = await getUpdatedList();
   const webtoons = [];
   $webtoonList.each((index, node) => {
     const title = $(node).siblings("img").attr("title");

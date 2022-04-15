@@ -49,3 +49,7 @@ Content-Type: {{content-type}}
 ### WEBTOON get webtoon
 GET {{hostname}}/webtoon HTTP/1.1
 Content-Type: {{content-type}}
+
+### newWebtoons
+GET {{hostname}}/new/전체 HTTP/1.1
+Content-Type: {{content-type}}
