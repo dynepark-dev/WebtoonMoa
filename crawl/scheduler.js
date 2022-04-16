@@ -43,7 +43,7 @@ schedule.scheduleJob("*/10 23,0 * * *", async () => {
     const everyWebtoon = [...dbData, ...crawled];
     const onlyNew = getUniqueObjectFromArray(everyWebtoon);
     postMongoDB(onlyNew);
-    showTime(`Naver uploaded ${newWebtoon.length}`);
+    showTime(`Naver uploaded ${webtoonsLength}`);
   } else {
     showTime(`Naver nothing to upload`);
   }

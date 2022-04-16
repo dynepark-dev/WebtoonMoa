@@ -1,11 +1,11 @@
-@import '../Variables/variables.scss';
+@import "../Variables/variables.scss";
 
-.WebtoonDetail{
+.WebtoonDetail {
   background-color: $title-black;
   padding: 1rem;
-  .wrapper{
+  .wrapper {
     background-color: $white;
-    max-width: calc($max-width *0.5 );
+    max-width: calc(1024px / 2);
     padding: 2rem;
     margin: auto;
     border-radius: 6px;
@@ -14,40 +14,40 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    .img_wrapper{
+    .img_wrapper {
+      width: 100%;
       position: relative;
-      margin:auto;
-      img{
-        width:100%;
-        object-fit: contain;
+      margin: auto;
+      img {
+        width: 100%;
       }
-      .bookmark{
-      position:absolute;
-      font-size: 2.5em;
-      top:-1rem;
-      right: 1rem;
-      color:orangered;
+      .bookmark {
+        position: absolute;
+        font-size: 2.5em;
+        top: 0.5rem;
+        right: 0.5rem;
+        color: red;
       }
-      .trashcan{
-        position:absolute;
+      .trashcan {
+        position: absolute;
         font-size: 3em;
         bottom: 4px;
         right: 12px;
-        color:grey;
+        color: grey;
         opacity: 0.4;
       }
-      i:hover{
+      i:hover {
         cursor: pointer;
-        filter:brightness(1.2);
+        filter: brightness(1.2);
         transition: filter 300ms;
       }
     }
-    table{
+    table {
       border-collapse: collapse;
       width: 100%;
-      tbody{
-        tr{
-          td{
+      tbody {
+        tr {
+          td {
             border: 1px solid black;
             text-align: center;
             // text-align: start;
@@ -56,18 +56,18 @@
         }
       }
     }
-    .buttons{
+    .buttons {
       width: 100%;
       display: flex;
-      gap: .5em;
-      margin-top: .5em;
+      gap: 0.5em;
+      margin-top: 0.5em;
     }
   }
 }
-@media all and (max-width:767px) { 
-  .Webtoons_id{
-    font-size:12px;
-    .info{
+@media all and (max-width: 767px) {
+  .Webtoons_id {
+    font-size: 12px;
+    .info {
       flex-direction: column;
     }
   }

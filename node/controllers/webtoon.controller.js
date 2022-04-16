@@ -1,15 +1,5 @@
 const Webtoon = require("../models/webtoon.model");
 
-const getWebtoon = async (req, res) => {
-  const id = req.params.id;
-  try {
-    const webtoon = await Webtoon.findOne({ _id: id });
-    res.status(200).json(webtoon);
-  } catch (error) {
-    res.status(409).json({ message: error.message });
-  }
-};
-
 const getWebtoons = async (req, res) => {
   const { category, platform, genre } = req.query;
   const page = parseInt(req.query.page);
@@ -71,6 +61,16 @@ const getBookmarked = async (req, res) => {
   }
 };
 
+const getWebtoonDetail = async (req, res) => {
+  const id = req.params.id;
+  try {
+    const webtoon = await Webtoon.findOne({ _id: id });
+    res.status(200).json(webtoon);
+  } catch (error) {
+    res.status(409).json({ message: error.message });
+  }
+};
+
 const getWebtoonsUpdated = async (req, res) => {
   try {
     results = await Webtoon.find({}).sort({ updated: -1 }).limit(limit).exec();
@@ -103,10 +103,10 @@ const postWebtoon = async (req, res) => {
 };
 
 module.exports = {
-  getWebtoon,
   getWebtoons,
   searchWebtoon,
   getBookmarked,
+  getWebtoonDetail,
   getWebtoonsUpdated,
   getWebtoonsRecommended,
   postWebtoon,
