@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { api_new_webtoons } from "../API";
+import { api_new_webtoon } from "../API";
 import useDebounce from "./useDebounce";
 
 function useFetchNewWebtoon(platform) {
@@ -10,7 +10,7 @@ function useFetchNewWebtoon(platform) {
   function fetchNewWebtoon(platform) {
     setLoading(true);
     setError(false);
-    api_new_webtoons(platform)
+    api_new_webtoon(platform)
       .then((res) => {
         setData([...res.data]);
         setLoading(false);
@@ -28,7 +28,7 @@ function useFetchNewWebtoon(platform) {
   // useEffect(() => {
   //   setLoading(true);
   //   setError(false);
-  //   api_new_webtoons(platform)
+  //   api_new_webtoon(platform)
   //     .then((res) => {
   //       setData([...res.data]);
   //       setLoading(false);

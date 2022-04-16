@@ -6,17 +6,21 @@ import Filter from "../Components/Filter";
 import { useSearchParams } from "react-router-dom";
 import useFetchWebtoon from "../Hooks/useFetchWebtoon";
 import LoadingAndError from "../Components/LoadingAndError";
-// import db from "../DB/database.json";
 
 function Webtoons() {
   const platformFilter = [
     "네이버",
     "카카오",
-    "카카오페이지",
-    "머시기",
-    "저시기",
-    "거시기",
-    "저머시기",
+    "카카오페이지*",
+    "레진코믹스*",
+    "탑툰*",
+    "투믹스*",
+    "봄툰*",
+    "코미코*",
+    "미스터블루*",
+    "피너툰*",
+    "버프툰*",
+    "무툰*",
   ];
   const genreFilter = [
     "로맨스",
@@ -29,7 +33,6 @@ function Webtoons() {
     "일상",
     "기타",
   ];
-  // const data = db.webtoons;
   const [platform, setPlatform] = useState(["전체"]);
   const [genre, setGenre] = useState(["전체"]);
   const [searchParams] = useSearchParams({});
@@ -53,7 +56,6 @@ function Webtoons() {
   function capitalize(string) {
     return string[0].toUpperCase() + string.slice(1);
   }
-
   return (
     <div className={styles.Webtoons}>
       <div className={styles.wrapper}>
@@ -72,7 +74,7 @@ function Webtoons() {
             setData={setGenre}
           />
         </div>
-        <WebtoonsList data={data} />
+        <WebtoonsList data={data.webtoons} />
         <LoadingAndError loading={loading} error={error} data={data} />
         <Button
           children="더보기"

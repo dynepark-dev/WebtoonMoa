@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { api_webtoons } from "../API";
+import { api_webtoon } from "../API";
 import useDebounce from "./useDebounce";
 
 function useFetchWebtoon(category, page, platform, genre) {
@@ -10,9 +10,9 @@ function useFetchWebtoon(category, page, platform, genre) {
   function fetchWebtoon(category, page, platform, genre) {
     setLoading(true);
     setError(false);
-    api_webtoons(category, page)
+    api_webtoon(category, page, platform, genre)
       .then((res) => {
-        setData([...res.data]);
+        setData(res.data);
         setLoading(false);
       })
       .catch((err) => {
@@ -39,7 +39,7 @@ function useFetchWebtoon(category, page, platform, genre) {
   // useEffect(() => {
   //   setLoading(true);
   //   setError(false);
-  //   api_webtoons(category, page)
+  //   api_webtoon(category, page)
   //     .then((res) => {
   //       setData([...res.data]);
   //       setLoading(false);

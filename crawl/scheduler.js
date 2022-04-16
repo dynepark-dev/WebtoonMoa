@@ -35,7 +35,7 @@ async function postMongoDB(data) {
 
 schedule.scheduleJob("*/10 23,0 * * *", async () => {
   showTime("Naver crawl starting!");
-  const dbData = await NewWebtoon.find({ platform: "naver" });
+  const dbData = await NewWebtoon.find({ platform: "네이버" });
   const [webtoonsLength] = await getUpdatedList();
 
   if (webtoonsLength > dbData.length) {

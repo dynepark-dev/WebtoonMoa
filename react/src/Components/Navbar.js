@@ -12,9 +12,9 @@ function Navbar() {
   const tabArray = [
     { id: 0, title: "최신웹툰", link: "/new" },
     { id: 1, title: "연재웹툰", link: "/webtoons?category=ongoing" },
-    { id: 2, title: "완결웹툰", link: "webtoons?category=finished" },
+    { id: 2, title: "완결웹툰", link: "webtoons?category=completed" },
     { id: 3, title: "성인웹툰", link: "/webtoons?category=adult" },
-    { id: 4, title: "BL/GL", link: "/webtoons?category=blgl" },
+    { id: 4, title: "BL/GL", link: "/webtoons?category=BL/GL" },
     { id: 5, title: "MyPage", link: "/my" },
     { id: 6, title: "커뮤니티", link: "/community" },
   ];

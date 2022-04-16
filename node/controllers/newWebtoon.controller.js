@@ -3,9 +3,8 @@ const NewWebtoon = require("../models/newWebtoon.model");
 const getNewWebtoons = async (req, res) => {
   const platform = req.params.platform;
   const platformArray = platform.split(",");
-  console.log(platformArray);
   try {
-    platform === "전체"
+    platform === "all"
       ? (result = await NewWebtoon.find())
       : (result = await NewWebtoon.find({ platform: { $in: platformArray } }));
     res.json(result);

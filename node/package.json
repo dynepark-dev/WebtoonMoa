@@ -19,8 +19,6 @@
   "homepage": "https://github.com/dynepark-dev/crawl#readme",
   "dependencies": {
     "argon2": "^0.28.5",
-    "axios": "^0.26.1",
-    "cheerio": "^1.0.0-rc.10",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",

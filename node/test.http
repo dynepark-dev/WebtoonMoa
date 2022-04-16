@@ -51,5 +51,9 @@ GET {{hostname}}/webtoon HTTP/1.1
 Content-Type: {{content-type}}
 
 ### newWebtoons
-GET {{hostname}}/new/전체 HTTP/1.1
+GET {{hostname}}/ HTTP/1.1
+Content-Type: {{content-type}}
+
+### temp
+GET {{hostname}}/new/temp HTTP/1.1
 Content-Type: {{content-type}}

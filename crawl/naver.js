@@ -50,7 +50,7 @@ const UpdateNaver = async () => {
     const [episodeTitle, episodeLink] = await getLatestData(element.link);
     webtoons[index].episodeTitle = episodeTitle;
     webtoons[index].episodeLink = episodeLink;
-    webtoons[index].platform = "naver";
+    webtoons[index].platform = "네이버";
   }
   return webtoons;
 };

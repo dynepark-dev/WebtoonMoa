@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "../Styles/New.module.scss";
 import WebtoonsList from "../Components/WebtoonsList";
 import Ribbon from "../Components/Ribbon";
@@ -9,7 +9,7 @@ import useFetchNewWebtoon from "../Hooks/useFetchNewWebtoon";
 function New() {
   const platformFilter = [
     "네이버",
-    "카카오*",
+    "카카오",
     "카카오페이지*",
     "레진코믹스*",
     "탑툰*",
@@ -21,9 +21,8 @@ function New() {
     "버프툰*",
     "무툰*",
   ];
-  const [platform, setPlatform] = useState(["네이버"]);
+  const [platform, setPlatform] = useState(["all"]);
   const [data, loading, error] = useFetchNewWebtoon(platform);
-  console.log(platform);
   return (
     <div className={styles.New}>
       <Ribbon
@@ -35,7 +34,7 @@ function New() {
         <h2>Updated Webtoons</h2>
         <Filter
           array={platformFilter}
-          clear="전체"
+          clear="all"
           data={platform}
           setData={setPlatform}
         />
