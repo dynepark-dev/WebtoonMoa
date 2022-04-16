@@ -28,3 +28,23 @@ export const api_patch_user = async (webtoon_id) =>
     { webtoon_id },
     { withCredentials: true }
   );
+
+// webtoons
+
+// export const api_webtoons_filter = async (category, platform, genre, page) =>
+//   await axios.get(
+//     `${url}/webtoon?category=${category}&platform=${platform}&genre=${genre}&page=${page}`,
+//     { withCredentials: true }
+//   );
+export const api_webtoon = async (category, page, platform, genre) =>
+  await axios.get(
+    `${url}/webtoon?category=${category}&page=${page}&platform=${platform}&genre=${genre}`,
+    {
+      withCredentials: true,
+    }
+  );
+
+export const api_new_webtoon = async (platform) =>
+  await axios.get(`${url}/new/${platform}`, {
+    withCredentials: true,
+  });

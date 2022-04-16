@@ -16,11 +16,11 @@ const getUpdatedList = async () => {
   const $webtoonList = $(".ico_updt");
   const webtoonsLength = $webtoonList.length;
   console.log(`Updated Naver webtoons: ${webtoonsLength}`);
-  return [$, $webtoonList];
+  return [webtoonsLength, $, $webtoonList];
 };
 
 const getPrimaryData = async () => {
-  const [$, $webtoonList] = await getUpdatedList();
+  const [webtoonsLength, $, $webtoonList] = await getUpdatedList();
   const webtoons = [];
   $webtoonList.each((index, node) => {
     const title = $(node).siblings("img").attr("title");
@@ -44,15 +44,15 @@ const getLatestData = async (url) => {
   return [episodeTitle, episodeLink];
 };
 
-const Update = async () => {
+const UpdateNaver = async () => {
   const webtoons = await getPrimaryData();
   for (const [index, element] of webtoons.entries()) {
     const [episodeTitle, episodeLink] = await getLatestData(element.link);
     webtoons[index].episodeTitle = episodeTitle;
     webtoons[index].episodeLink = episodeLink;
+    webtoons[index].platform = "네이버";
   }
-  console.table(webtoons);
   return webtoons;
 };
 
-module.exports = { getUpdatedList, Update };
+module.exports = { getUpdatedList, UpdateNaver };

@@ -7,9 +7,11 @@ function Ribbon({ line1, line2, link }) {
     <div className={styles.Ribbon}>
       <div className={styles.wrapper}>
         <span className={styles.title}>{line1}</span>
-        <Link to={link} className={styles.link}>
-          {line2}
-        </Link>
+        {link && (
+          <Link to={link} className={styles.link}>
+            {line2}
+          </Link>
+        )}
       </div>
     </div>
   );

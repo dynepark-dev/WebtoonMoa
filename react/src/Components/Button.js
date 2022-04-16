@@ -1,12 +1,13 @@
 import React from "react";
 import styles from "../Styles/Button.module.scss";
 
-function Button({ children, click, href, selected }) {
+function Button({ children, onClick, href, selected, disabled }) {
   return (
     <button
       className={`${styles.Button} ${selected && styles.selected}`}
-      onClick={click}
+      onClick={onClick}
       href={href}
+      disabled={disabled}
     >
       {children}
     </button>

@@ -6,7 +6,7 @@ const authRoutes = require("./routes/auth.routes");
 const commentRoutes = require("./routes/comment.routes");
 const userRoutes = require("./routes/user.routes");
 const articleRoutes = require("./routes/article.routes");
-const newRoutes = require("./routes/new.routes");
+const newWebtoonRoutes = require("./routes/newWebtoon.routes");
 const cache = require("./middleware/routeCache");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
@@ -38,7 +38,7 @@ mongoose
 // Routes
 app.use(authRoutes);
 app.use("/user", userRoutes);
-app.use("/new", cache(3000), newRoutes);
+app.use("/new", cache(3000), newWebtoonRoutes);
 app.use("/webtoon", webtoonRoutes);
 app.use("/comment", commentRoutes);
 app.use("/article", articleRoutes);

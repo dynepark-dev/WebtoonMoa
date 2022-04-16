@@ -150,7 +150,7 @@ function DropdownMenu({ loginOpen }) {
           <DropdownItem
             children="완결웹툰"
             leftIcon={<i className="fa-solid fa-hourglass-end" />}
-            link="/webtoons?category=finished"
+            link="/webtoons?category=completed"
           />
           <DropdownItem
             children="성인웹툰"
@@ -160,7 +160,7 @@ function DropdownMenu({ loginOpen }) {
           <DropdownItem
             children="BL/GL"
             leftIcon={<i className="fa-solid fa-mars-double" />}
-            link="/webtoons?category=blgl"
+            link="/webtoons?category=BL/GL"
           />
           <DropdownItem
             children="MyPage"

@@ -24,7 +24,7 @@ const checkUser = (req, res, next) => {
   if (token) {
     jwt.verify(token, JWT_TOKEN_SECRET, async (err, decodedToken) => {
       if (err) {
-        res.locals.user = null;
+        res.locals.user = "guest";
         next();
       } else {
         let user = await User.findById(decodedToken.id);
@@ -33,7 +33,8 @@ const checkUser = (req, res, next) => {
       }
     });
   } else {
-    res.locals.user = null;
+    // res.locals.user = null;
+    res.locals.user = "guest";
     next();
   }
 };

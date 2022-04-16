@@ -11,10 +11,3 @@ function useToggle(defaultValue) {
 }
 
 export default useToggle;
-
-//   "if" is better?
-//   if (typeof x === "undefined") {
-//     setValue((current) => !current);
-//   } else {
-//     setValue(x);
-//   }
