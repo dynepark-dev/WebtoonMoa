@@ -1,74 +1,95 @@
 @import "../Variables/variables.scss";
 
 .WebtoonDetail {
-  background-color: $title-black;
-  padding: 1rem;
+  width: 100%;
+  background-color: grey;
+  margin: auto;
+  padding: 1em;
   .wrapper {
-    background-color: $white;
-    max-width: calc(1024px / 2);
-    padding: 2rem;
+    width: $max-width;
+    border: 1px solid grey;
+    padding: 1em;
     margin: auto;
-    border-radius: 6px;
-    color: $title-black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    .img_wrapper {
-      width: 100%;
-      position: relative;
-      margin: auto;
-      img {
+    .detail {
+      display: flex;
+      margin-bottom: 10px;
+      .imageAndButtons {
+        width: 400px;
+        .image {
+          position: relative;
+          font-size: 2em;
+          img {
+            width: 100%;
+          }
+          .heart {
+            position: absolute;
+            top: 0;
+            right: 4px;
+            color: grey;
+            cursor: pointer;
+          }
+          .trash {
+            position: absolute;
+            right: 4px;
+            bottom: 8px;
+            color: grey;
+            cursor: pointer;
+          }
+        }
+        .buttons {
+          display: flex;
+          flex-direction: column;
+          gap: 0.25em;
+        }
+      }
+      .table {
+        margin: 0 auto;
         width: 100%;
-      }
-      .bookmark {
-        position: absolute;
-        font-size: 2.5em;
-        top: 0.5rem;
-        right: 0.5rem;
-        color: red;
-      }
-      .trashcan {
-        position: absolute;
-        font-size: 3em;
-        bottom: 4px;
-        right: 12px;
-        color: grey;
-        opacity: 0.4;
-      }
-      i:hover {
-        cursor: pointer;
-        filter: brightness(1.2);
-        transition: filter 300ms;
-      }
-    }
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      tbody {
-        tr {
-          td {
-            border: 1px solid black;
-            text-align: center;
-            // text-align: start;
-            padding: 0 12px 4px;
+        padding: 0 1em;
+        font-size: 1em;
+        color: black;
+        // display: flex;
+        // flex-direction: column;
+        .title {
+          background-color: grey;
+          font-size: 1.25em;
+          font-weight: bold;
+          color: white;
+          text-align: center;
+          padding: 0.5em 1em;
+          border-radius: 6px;
+        }
+        .tr {
+          margin: 1em 0;
+          display: flex;
+          padding-left: 6px;
+          .th {
+            min-width: 130px;
+          }
+          .td {
+            flex: 1;
+            .genre {
+              background-color: grey;
+              padding: 4px 12px;
+              margin: 0 4px;
+              border-radius: 16px;
+              color: white;
+              cursor: pointer;
+            }
+            .stat {
+              margin-right: 12px;
+            }
           }
         }
       }
     }
-    .buttons {
-      width: 100%;
-      display: flex;
-      gap: 0.5em;
-      margin-top: 0.5em;
+    .synopsis {
+      border-top: 1px solid grey;
+      padding: 0.5em;
+      :first-child {
+        font-weight: bold;
+      }
     }
   }
-}
-@media all and (max-width: 767px) {
-  .Webtoons_id {
-    font-size: 12px;
-    .info {
-      flex-direction: column;
-    }
-  }
+  background-color: #fff;
 }
