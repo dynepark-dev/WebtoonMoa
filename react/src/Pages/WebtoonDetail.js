@@ -67,6 +67,7 @@ function WebtoonDetail() {
               <div className={styles.td}>
                 {webtoon?.genre?.map((item) => (
                   <span
+                    key={item}
                     className={styles.genre}
                     onClick={() => alert(`link to ${item}`)}
                   >
@@ -104,7 +105,7 @@ function WebtoonDetail() {
         </div>
         <div className={styles.synopsis}>
           <div>작품소개</div>
-          <div>{webtoon.synopsis || "-"}</div>
+          <div dangerouslySetInnerHTML={{ __html: webtoon.synopsis || "-" }} />
         </div>
       </div>
     </div>
