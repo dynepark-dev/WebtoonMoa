@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.scss";
-import Aside from "./Components/Aside";
 import Footer from "./Components/Footer";
 import Navbar from "./Components/Navbar";
 import New from "./Pages/New";
@@ -14,11 +13,23 @@ import Terms from "./Pages/Terms";
 import Privacy from "./Pages/Privacy";
 import Teenager from "./Pages/Teenager";
 import My from "./Pages/My";
+import { api_check_login } from "./API";
+import { useDispatch } from "react-redux";
+import { LOGIN, LOGOUT } from "./Redux/constants";
 
 function App() {
+  let dispatch = useDispatch();
+  api_check_login()
+    .then((res) => {
+      dispatch({ type: LOGIN, payload: res.data });
+    })
+    .catch((err) => {
+      console.log(err);
+      dispatch({ type: LOGOUT });
+    });
+
   return (
     <div className="App">
-      {/* <Aside /> */}
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -26,9 +37,9 @@ function App() {
         <Route path="/faq" element={<Faq />} />
         <Route path="/webtoons" element={<Webtoons />} />
         <Route path="/my" element={<My />} />
-        <Route path="/webtoon/:id" element={<WebtoonDetail />} />
+        <Route path="/webtoon/:_id" element={<WebtoonDetail />} />
         <Route path="/policy">
-          <Route path="term" element={<Terms />} />
+          <Route path="terms" element={<Terms />} />
           <Route path="privacy" element={<Privacy />} />
           <Route path="teenager" element={<Teenager />} />
         </Route>

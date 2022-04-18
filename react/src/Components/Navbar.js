@@ -6,18 +6,18 @@ import logo_kr from "../Assets/logo_kr.svg";
 import useToggle from "../Hooks/useToggle";
 import Modal from "./Modal";
 import Login from "./Login";
+import NavbarIcons from "./NavbarIcons";
 
 function Navbar() {
   const tabArray = [
     { id: 0, title: "최신웹툰", link: "/new" },
-    { id: 1, title: "연재웹툰", link: "/webtoons?type=ongoing" },
-    { id: 2, title: "완결웹툰", link: "webtoons?type=finished" },
-    { id: 3, title: "성인웹툰", link: "/webtoons?type=adult" },
-    { id: 4, title: "BL/GL", link: "/webtoons?type=blgl" },
+    { id: 1, title: "연재웹툰", link: "/webtoons?category=ongoing" },
+    { id: 2, title: "완결웹툰", link: "webtoons?category=completed" },
+    { id: 3, title: "성인웹툰", link: "/webtoons?category=adult" },
+    { id: 4, title: "BL/GL", link: "/webtoons?category=BL/GL" },
     { id: 5, title: "MyPage", link: "/my" },
     { id: 6, title: "커뮤니티", link: "/community" },
   ];
-
   const [flip, setFlip] = useToggle(false);
   const [open, setOpen] = useToggle(false);
   const [modalOpen, setModalOpen] = useToggle(false);
@@ -27,7 +27,7 @@ function Navbar() {
     <nav className={styles.Navbar}>
       <div className={styles.wrapper}>
         <div className={styles.burger} onClick={() => setOpen()}>
-          <i className="fa-solid fa-bars"></i>
+          <i className="fa-solid fa-bars" />
         </div>
         <Link to="/" onClick={() => setActive(-1)}>
           <div
@@ -55,16 +55,8 @@ function Navbar() {
             </Link>
           ))}
         </ul>
-        <ul className={styles.icons}>
-          <li>
-            <i className="fa-solid fa-magnifying-glass"></i>
-          </li>
-          <li className={styles.search} onClick={() => setModalOpen(true)}>
-            <i className="fa-solid fa-user"></i>
-          </li>
-        </ul>
+        <NavbarIcons loginOpen={() => setModalOpen(true)} />
       </div>
-
       <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
         <Login onClose={() => setModalOpen(false)} />
       </Modal>

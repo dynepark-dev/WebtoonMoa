@@ -1,28 +1,29 @@
 @import "../Variables/variables.scss";
 
 .Faq {
-	background-color: #f2f2f2;
+	background-color: #fff;
+	font-size: 12px;
 	padding: 1px;
 	.wrapper {
+		$padding: 5em;
+		position: relative;
 		max-width: $max-width;
-		min-width: 320px;
-		width: 80%;
-		background-color: $white;
-		margin: 5em auto;
-		max-width: $max-width;
-		padding: 3em 3.5em;
-		color: $black;
+		margin: 0 auto $padding;
+		color: #333;
 		h2 {
+			padding: $padding 0 1em;
 			text-align: center;
-			margin-bottom: 1.5em;
 		}
 		ul {
-			padding: 0;
+			padding: 70px 100px;
+			background-color: #fff;
+			border: solid 1px #dbdee3;
 			border-bottom: 1px solid #d7d7d7;
 			li {
 				font-size: 1em;
 				color: #363636;
 				.question {
+					font-weight: bold;
 					border-top: 1px solid #d7d7d7;
 					padding: 2em 1em;
 					display: flex;

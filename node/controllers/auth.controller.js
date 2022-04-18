@@ -41,7 +41,7 @@ const createUser = async (req, res) => {
         httpOnly: true,
         maxAge: dayInSec * 1000,
       });
-      return res.status(201).json(user.username);
+      return res.status(201).json(user.email);
     } catch (err) {
       const errors = handleErrors(err);
       return res.status(400).json({ errors });

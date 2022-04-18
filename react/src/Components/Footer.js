@@ -13,7 +13,7 @@ function Footer() {
   const categoryArray = [
     { id: 0, name: "Updated", link: "/404" },
     { id: 1, name: "Ongoing", link: "/404" },
-    { id: 2, name: "Finished", link: "/404" },
+    { id: 2, name: "Completed", link: "/404" },
     { id: 3, name: "Adult", link: "/404" },
     { id: 4, name: "BL/GL", link: "/404" },
     { id: 5, name: "Community", link: "/404" },

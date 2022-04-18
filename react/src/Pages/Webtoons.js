@@ -1,19 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../Styles/Webtoons.module.scss";
-import db from "../DB/database.json";
 import WebtoonsList from "../Components/WebtoonsList";
 import Button from "../Components/Button";
 import Filter from "../Components/Filter";
+import { useSearchParams } from "react-router-dom";
+import useFetchWebtoon from "../Hooks/useFetchWebtoon";
+import LoadingAndError from "../Components/LoadingAndError";
 
 function Webtoons() {
   const platformFilter = [
     "네이버",
     "카카오",
     "카카오페이지",
-    "머시기",
-    "저시기",
-    "거시기",
-    "저머시기",
+    "레진코믹스",
+    "탑툰",
+    "투믹스",
+    "봄툰",
+    "코미코",
+    "미스터블루",
+    "피너툰",
+    "버프툰",
+    "무툰",
   ];
   const genreFilter = [
     "로맨스",
@@ -26,18 +33,54 @@ function Webtoons() {
     "일상",
     "기타",
   ];
-  const data = db.webtoons;
+  const [platform, setPlatform] = useState(["전체"]);
+  const [genre, setGenre] = useState(["전체"]);
+  const [searchParams] = useSearchParams({});
+  const category = searchParams.get("category");
+  const [page, setPage] = useState(1);
+  const [data, loading, error] = useFetchWebtoon(
+    category,
+    page,
+    platform,
+    genre
+  );
+
+  useEffect(() => {
+    setPage(1);
+  }, [category, platform, genre]);
+
+  const handleSubmit = () => {
+    setPage((prev) => prev + 1);
+  };
+
+  function capitalize(string) {
+    return string[0].toUpperCase() + string.slice(1);
+  }
   return (
     <div className={styles.Webtoons}>
       <div className={styles.wrapper}>
-        <h2>Ongoing Webtoons</h2>
+        <h2>{capitalize(category)} Webtoons</h2>
         <div className={styles.filters}>
-          <Filter initial={["전체"]} array={platformFilter} clear="전체" />
-          <Filter initial={["전체"]} array={genreFilter} clear="전체" />
+          <Filter
+            array={platformFilter}
+            clear="전체"
+            data={platform}
+            setData={setPlatform}
+          />
+          <Filter
+            array={genreFilter}
+            clear="전체"
+            data={genre}
+            setData={setGenre}
+          />
         </div>
-        <WebtoonsList data={data} />
-        <Button children="더보기" />
-        {/* <Button children="마지막페이지 입니다" /> */}
+        <WebtoonsList webtoons={data.webtoons} />
+        <LoadingAndError loading={loading} error={error} data={data} />
+        <Button
+          children="더보기"
+          onClick={() => handleSubmit()}
+          // disabled={loading || !data?.meta?.nextPage}
+        />
       </div>
     </div>
   );

@@ -1,14 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "../Styles/Filter.module.scss";
 
-function Filter({ initial, array, clear }) {
-  const [data, setData] = useState(initial);
-
+function Filter({ array, clear, data, setData }) {
   function toggleButton(item) {
     data.includes(item)
       ? setData([...data, item].filter((x) => x !== item))
       : setData([...data, item].filter((x) => x !== clear));
   }
+  data.length === 0 && setData([clear]);
 
   return (
     <ul className={styles.Filter}>
@@ -16,7 +15,7 @@ function Filter({ initial, array, clear }) {
         className={data.includes(clear) ? styles.selected : ""}
         onClick={() => setData([clear])}
       >
-        {clear}
+        전체
       </li>
       {array.map((item) => (
         <li
