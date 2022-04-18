@@ -44,6 +44,11 @@ export const api_webtoon = async (category, page, platform, genre) =>
     }
   );
 
+export const api_webtoon_detail = async (_id) =>
+  await axios.get(`${url}/webtoon/${_id}`, {
+    withCredentials: true,
+  });
+
 export const api_new_webtoon = async (platform) =>
   await axios.get(`${url}/new/${platform}`, {
     withCredentials: true,

@@ -21,7 +21,7 @@ function New() {
     "버프툰*",
     "무툰*",
   ];
-  const [platform, setPlatform] = useState(["all"]);
+  const [platform, setPlatform] = useState(["전체"]);
   const [data, loading, error] = useFetchNewWebtoon(platform);
   return (
     <div className={styles.New}>
@@ -34,11 +34,11 @@ function New() {
         <h2>Updated Webtoons</h2>
         <Filter
           array={platformFilter}
-          clear="all"
+          clear="전체"
           data={platform}
           setData={setPlatform}
         />
-        <WebtoonsList data={data} />
+        <WebtoonsList webtoons={data} />
         <LoadingAndError loading={loading} error={error} data={data} />
       </div>
     </div>

@@ -15,31 +15,14 @@ function useFetchNewWebtoon(platform) {
         setData([...res.data]);
         setLoading(false);
       })
-      .catch((err) => {
-        // console.log(error);
+      .catch((error) => {
+        console.log(error);
         setLoading(false);
         setError(true);
       });
   }
 
   useDebounce(() => fetchNewWebtoon(platform), 1000, [platform]);
-  // useDebounce(() => console.log("call API"), 1000, [platform]);
-
-  // useEffect(() => {
-  //   setLoading(true);
-  //   setError(false);
-  //   api_new_webtoon(platform)
-  //     .then((res) => {
-  //       setData([...res.data]);
-  //       setLoading(false);
-  //     })
-  //     .catch((err) => {
-  //       // console.log(error);
-  //       setLoading(false);
-  //       setError(true);
-  //     });
-  // }, [platform]);
-
   return [data, loading, error];
 }
 
