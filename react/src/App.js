@@ -34,10 +34,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/new" element={<New />} />
-        <Route path="/faq" element={<Faq />} />
         <Route path="/webtoons" element={<Webtoons />} />
-        <Route path="/my" element={<My />} />
         <Route path="/webtoon/:_id" element={<WebtoonDetail />} />
+        <Route path="/my" element={<My />} />
+        <Route path="/faq" element={<Faq />} />
         <Route path="/policy">
           <Route path="terms" element={<Terms />} />
           <Route path="privacy" element={<Privacy />} />
