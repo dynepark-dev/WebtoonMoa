@@ -4,7 +4,7 @@ const getNewWebtoons = async (req, res) => {
   const platform = req.params.platform;
   const platformArray = platform.split(",");
   try {
-    platform === "all"
+    platform === "전체"
       ? (result = await NewWebtoon.find())
       : (result = await NewWebtoon.find({ platform: { $in: platformArray } }));
     res.json(result);

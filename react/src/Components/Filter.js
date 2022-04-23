@@ -15,7 +15,7 @@ function Filter({ array, clear, data, setData }) {
         className={data.includes(clear) ? styles.selected : ""}
         onClick={() => setData([clear])}
       >
-        {clear}
+        전체
       </li>
       {array.map((item) => (
         <li

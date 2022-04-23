@@ -15,8 +15,8 @@ function useFetchWebtoon(category, page, platform, genre) {
         setData(res.data);
         setLoading(false);
       })
-      .catch((err) => {
-        // console.log(error);
+      .catch((error) => {
+        console.log(error);
         setLoading(false);
         setError(true);
       });
@@ -28,28 +28,6 @@ function useFetchWebtoon(category, page, platform, genre) {
     platform,
     genre,
   ]);
-
-  // useDebounce(() => console.log("call API"), 1000, [
-  //   category,
-  //   page,
-  //   platform,
-  //   genre,
-  // ]);
-
-  // useEffect(() => {
-  //   setLoading(true);
-  //   setError(false);
-  //   api_webtoon(category, page)
-  //     .then((res) => {
-  //       setData([...res.data]);
-  //       setLoading(false);
-  //     })
-  //     .catch((err) => {
-  //       // console.log(error);
-  //       setLoading(false);
-  //       setError(true);
-  //     });
-  // }, [category, page]);
 
   return [data, loading, error];
 }
