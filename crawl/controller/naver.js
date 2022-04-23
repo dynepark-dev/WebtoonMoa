@@ -27,7 +27,7 @@ const getPrimaryData = async () => {
     const image = $(node).siblings("img").attr("src");
     const link = $(node).parent("a").attr("href");
     if (title && image && link) {
-      webtoons.push({ title, image, link });
+      webtoons.push({ title, image, link: `https://comic.naver.com${link}` });
     } else {
       console.log(`Naver webtoon updated failed: ${index}`);
     }
@@ -49,7 +49,7 @@ const updateNaver = async () => {
   for (const [index, element] of webtoons.entries()) {
     const [episodeTitle, episodeLink] = await getLatestData(element.link);
     webtoons[index].episodeTitle = episodeTitle;
-    webtoons[index].episodeLink = episodeLink;
+    webtoons[index].episodeLink = `https://comic.naver.com${episodeLink}`;
     webtoons[index].platform = "네이버";
   }
   return webtoons;
