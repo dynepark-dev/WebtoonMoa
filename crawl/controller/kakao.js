@@ -2,12 +2,14 @@ const puppeteer = require("puppeteer-extra");
 const StealthPlugin = require("puppeteer-extra-plugin-stealth");
 puppeteer.use(StealthPlugin());
 
+const KakaoUrl = "https://webtoon.kakao.com/original-webtoon?tab=mon";
+const baseUrl = "https://webtoon.kakao.com";
+
 const checkKakao = async () => {
-  const KakaoURL = "https://webtoon.kakao.com/original-webtoon?tab=mon";
   const target = `//p[normalize-space()='UP']/ancestor::a[".w-full h-full relative"]`;
   const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
-  await page.goto(KakaoURL);
+  await page.goto(KakaoUrl);
   await page.setViewport({
     width: 1200,
     height: 30000,
@@ -36,11 +38,11 @@ const updateKakao = async () => {
       webtoons.push({
         title,
         image,
-        link: `https://webtoon.kakao.com${link}`,
+        link: `${baseUrl}${link}`,
         platform: "카카오",
       });
     } else {
-      console.log(`Kakao webtoon updated failed!`);
+      console.log(`Kakao update failed. Title : ${title}`);
     }
   }
   browser.close();

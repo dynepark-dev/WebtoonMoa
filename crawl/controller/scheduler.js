@@ -1,12 +1,13 @@
 const schedule = require("node-schedule");
-const NewWebtoon = require("../newWebtoon.model.js");
+const NewWebtoon = require("../model/newWebtoon.model.js");
 const { updateNaver, checkNaver } = require("./naver");
 const { checkKakaopage, updateKakaopage } = require("./kakaopage.js");
 const { checkKakao, updateKakao } = require("./kakao.js");
 
-console.log("scheduler starting!");
+console.log("scheduler running");
 
 const day = 24 * 60 * 60 * 1000;
+const interval = "*/20 23,0 * * *";
 
 function showTime(message) {
   const today = new Date();
@@ -16,7 +17,6 @@ function showTime(message) {
   console.log(`${time} ${message}`);
 }
 
-// remove duplicated. by title
 function getUniqueObjectFromArray(data) {
   return Array.from(
     data.reduce(
@@ -30,15 +30,15 @@ function getUniqueObjectFromArray(data) {
 async function postMongoDB(data) {
   try {
     await NewWebtoon.insertMany(data);
-    console.log("upload success!");
+    showTime("upload success!");
   } catch (err) {
-    console.log("upload failed!");
+    showTime("upload failed!");
     console.log(err);
   }
 }
 
 //Naver
-schedule.scheduleJob("*/10 23,0 * * *", async () => {
+schedule.scheduleJob(interval, async () => {
   showTime("Naver crawl starting!");
   const dbData = await NewWebtoon.find({
     platform: "네이버",
@@ -59,7 +59,7 @@ schedule.scheduleJob("*/10 23,0 * * *", async () => {
 });
 
 //Kakaopage
-schedule.scheduleJob("*/10 23,0 * * *", async () => {
+schedule.scheduleJob(interval, async () => {
   showTime("Kakaopage crawl starting!");
   const dbData = await NewWebtoon.find({
     platform: "카카오페이지",
@@ -80,7 +80,7 @@ schedule.scheduleJob("*/10 23,0 * * *", async () => {
 });
 
 //Kakao
-schedule.scheduleJob("*/10 23,0 * * *", async () => {
+schedule.scheduleJob(interval, async () => {
   showTime("Kakao crawl starting!");
   const dbData = await NewWebtoon.find({
     platform: "카카오",
@@ -100,14 +100,15 @@ schedule.scheduleJob("*/10 23,0 * * *", async () => {
   }
 });
 
-// delete three days doc
+// db cleanup
 schedule.scheduleJob("0 4 */3 * *", async () => {
-  showTime("Deleting outDated");
+  showTime("Deleting old webtoons");
   threeDays = new Date(new Date() - 3 * day);
   let x = await NewWebtoon.deleteMany({ updatedAt: { $lt: threeDays } });
   console.log(x);
 });
 
+// for testing
 schedule.scheduleJob("* * * * * *", async () => {
   const message = "current time";
   showTime(message);
