@@ -11,16 +11,16 @@ function Webtoons() {
   const platformFilter = [
     "네이버",
     "카카오",
-    "카카오페이지*",
-    "레진코믹스*",
-    "탑툰*",
-    "투믹스*",
-    "봄툰*",
-    "코미코*",
-    "미스터블루*",
-    "피너툰*",
-    "버프툰*",
-    "무툰*",
+    "카카오페이지",
+    "레진코믹스",
+    "탑툰",
+    "투믹스",
+    "봄툰",
+    "코미코",
+    "미스터블루",
+    "피너툰",
+    "버프툰",
+    "무툰",
   ];
   const genreFilter = [
     "로맨스",
@@ -74,7 +74,7 @@ function Webtoons() {
             setData={setGenre}
           />
         </div>
-        <WebtoonsList data={data.webtoons} />
+        <WebtoonsList webtoons={data.webtoons} />
         <LoadingAndError loading={loading} error={error} data={data} />
         <Button
           children="더보기"
