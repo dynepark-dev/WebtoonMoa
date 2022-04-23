@@ -11,10 +11,5 @@ const NewWebtoonSchema = new Schema({
   updatedAt: { type: Date, default: () => Date.now() },
 });
 
-// newWebtoonSchema.pre("save", function (next) {
-//   this.updatedAt = Date.now();
-//   next();
-// });
-
 const NewWebtoon = mongoose.model("newWebtoon", NewWebtoonSchema);
 module.exports = NewWebtoon;
