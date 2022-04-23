@@ -34,10 +34,13 @@ async function postMongoDB(data) {
   }
 }
 
-// schedule.scheduleJob("*/10 23,0 * * *", async () => {
-schedule.scheduleJob("* * * * *", async () => {
+//Naver
+schedule.scheduleJob("*/10 23,0 * * *", async () => {
   showTime("Naver crawl starting!");
-  const dbData = await NewWebtoon.find({ platform: "네이버" });
+  const dbData = await NewWebtoon.find({
+    platform: "네이버",
+    updatedAT: { $gt: new Date(Date.now() - 24 * 60 * 60 * 1000) },
+  });
   const [webtoonsLength] = await checkNaver();
 
   if (webtoonsLength > dbData.length) {
@@ -51,9 +54,13 @@ schedule.scheduleJob("* * * * *", async () => {
   }
 });
 
-schedule.scheduleJob("* * * * *", async () => {
+//Kakaopage
+schedule.scheduleJob("*/10 23,0 * * *", async () => {
   showTime("Kakaopage crawl starting!");
-  const dbData = await NewWebtoon.find({ platform: "카카오페이지" });
+  const dbData = await NewWebtoon.find({
+    platform: "카카오페이지",
+    updatedAT: { $gt: new Date(Date.now() - 24 * 60 * 60 * 1000) },
+  });
   const [webtoonsLength] = await checkKakaopage();
 
   if (webtoonsLength > dbData.length) {
@@ -65,6 +72,14 @@ schedule.scheduleJob("* * * * *", async () => {
   } else {
     showTime(`Kakaopage nothing to upload`);
   }
+});
+
+// delete three days old doc
+schedule.scheduleJob("0 4 */3 * *", async () => {
+  showTime("Deleting outDated");
+  threeDaysOld = new Date(new Date() - 3 * 24 * 60 * 60 * 1000);
+  let x = await NewWebtoon.deleteMany({ updatedAt: { $lt: threeDaysOld } });
+  console.log(x);
 });
 
 schedule.scheduleJob("* * * * * *", async () => {
