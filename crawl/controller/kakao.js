@@ -1,21 +1,17 @@
 const puppeteer = require("puppeteer-extra");
-
 const StealthPlugin = require("puppeteer-extra-plugin-stealth");
 puppeteer.use(StealthPlugin());
 
-const checkKakaopage = async () => {
-  const KakaopageURL =
-    "https://page.kakao.com/main?categoryUid=10&subCategoryUid=1002";
-  const btn =
-    "#root > div.jsx-3157985592.mainContents.mainContents_pc > div.css-1sna24c > div.css-l0s1jq > ul > li:nth-child(3) > div";
-  const target = `//img[@alt="업데이트"]/ancestor::a`;
-
+const checkKakao = async () => {
+  const KakaoURL = "https://webtoon.kakao.com/original-webtoon?tab=mon";
+  const target = `//p[normalize-space()='UP']/ancestor::a[".w-full h-full relative"]`;
   const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
-  await page.goto(KakaopageURL);
-  await page.waitForSelector(btn);
-  await page.click(btn);
-
+  await page.goto(KakaoURL);
+  await page.setViewport({
+    width: 1200,
+    height: 30000,
+  });
   await page.waitForTimeout(3000);
 
   const webtoonList = await page.$x(target);
@@ -23,17 +19,16 @@ const checkKakaopage = async () => {
   return [webtoonsLength, webtoonList, browser];
 };
 
-const updateKakaopage = async () => {
-  const [webtoonsLength, webtoonList, browser] = await checkKakaopage();
+const updateKakao = async () => {
+  const [webtoonsLength, webtoonList, browser] = await checkKakao();
   const webtoons = [];
 
-  // console.log(webtoonsLength);
   for (webtoon of webtoonList) {
     const title = await webtoon.evaluate((el) =>
-      el.querySelector(".css-1ms9218").getAttribute("alt")
+      el.querySelector("img.my-0").getAttribute("alt")
     );
     const image = await webtoon.evaluate((el) =>
-      el.querySelector(".css-1ms9218").getAttribute("src")
+      el.querySelector("picture :nth-child(1)").getAttribute("srcset")
     );
     const link = await webtoon.evaluate((el) => el.getAttribute("href"));
 
@@ -41,8 +36,8 @@ const updateKakaopage = async () => {
       webtoons.push({
         title,
         image,
-        link: `https://page.kakao.com${link}`,
-        platform: "카카오페이지",
+        link: `https://webtoon.kakao.com${link}`,
+        platform: "카카오",
       });
     } else {
       console.log(`Kakao webtoon updated failed!`);
@@ -52,4 +47,4 @@ const updateKakaopage = async () => {
   return webtoons;
 };
 
-module.exports = { checkKakaopage, updateKakaopage };
+module.exports = { checkKakao, updateKakao };
