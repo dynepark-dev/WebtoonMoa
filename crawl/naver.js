@@ -10,7 +10,7 @@ const getHTML = async (url) => {
   }
 };
 
-const getUpdatedList = async () => {
+const checkNaver = async () => {
   const html = await getHTML(NaverURL);
   const $ = cheerio.load(html.data);
   const $webtoonList = $(".ico_updt");
@@ -20,7 +20,7 @@ const getUpdatedList = async () => {
 };
 
 const getPrimaryData = async () => {
-  const [webtoonsLength, $, $webtoonList] = await getUpdatedList();
+  const [webtoonsLength, $, $webtoonList] = await checkNaver();
   const webtoons = [];
   $webtoonList.each((index, node) => {
     const title = $(node).siblings("img").attr("title");
@@ -44,7 +44,7 @@ const getLatestData = async (url) => {
   return [episodeTitle, episodeLink];
 };
 
-const UpdateNaver = async () => {
+const updateNaver = async () => {
   const webtoons = await getPrimaryData();
   for (const [index, element] of webtoons.entries()) {
     const [episodeTitle, episodeLink] = await getLatestData(element.link);
@@ -55,4 +55,4 @@ const UpdateNaver = async () => {
   return webtoons;
 };
 
-module.exports = { getUpdatedList, UpdateNaver };
+module.exports = { checkNaver, updateNaver };

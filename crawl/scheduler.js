@@ -1,6 +1,7 @@
 const schedule = require("node-schedule");
 const NewWebtoon = require("./newWebtoon.model.js");
-const { UpdateNaver, getUpdatedList } = require("./naver");
+const { updateNaver, checkNaver } = require("./naver");
+const { checkKakaopage, updateKakaopage } = require("./kakaopage.js");
 
 console.log("scheduler starting!");
 
@@ -33,19 +34,36 @@ async function postMongoDB(data) {
   }
 }
 
-schedule.scheduleJob("*/10 23,0 * * *", async () => {
+// schedule.scheduleJob("*/10 23,0 * * *", async () => {
+schedule.scheduleJob("* * * * *", async () => {
   showTime("Naver crawl starting!");
   const dbData = await NewWebtoon.find({ platform: "네이버" });
-  const [webtoonsLength] = await getUpdatedList();
+  const [webtoonsLength] = await checkNaver();
 
   if (webtoonsLength > dbData.length) {
-    const crawled = await UpdateNaver();
+    const crawled = await updateNaver();
     const everyWebtoon = [...dbData, ...crawled];
     const onlyNew = getUniqueObjectFromArray(everyWebtoon);
     postMongoDB(onlyNew);
-    showTime(`Naver uploaded ${newWebtoon.length}`);
+    showTime(`Naver uploaded ${onlyNew.length}`);
   } else {
     showTime(`Naver nothing to upload`);
+  }
+});
+
+schedule.scheduleJob("* * * * *", async () => {
+  showTime("Kakaopage crawl starting!");
+  const dbData = await NewWebtoon.find({ platform: "카카오페이지" });
+  const [webtoonsLength] = await checkKakaopage();
+
+  if (webtoonsLength > dbData.length) {
+    const crawled = await updateKakaopage();
+    const everyWebtoon = [...dbData, ...crawled];
+    const onlyNew = getUniqueObjectFromArray(everyWebtoon);
+    postMongoDB(onlyNew);
+    showTime(`Kakaopage uploaded ${onlyNew.length}`);
+  } else {
+    showTime(`Kakaopage nothing to upload`);
   }
 });
 
