@@ -24,14 +24,14 @@
     }
     .logo {
       position: relative;
-      width: 4rem;
-      height: 4rem;
+      width: $nav-height;
+      height: $nav-height;
       transform-style: preserve-3d;
       transition: 1000ms;
       border: none;
       img {
         position: absolute;
-        height: 4rem;
+        height: $nav-height;
         backface-visibility: hidden;
       }
       .logo_front {
@@ -46,7 +46,7 @@
       justify-content: space-between;
       align-items: center;
       .tab {
-        padding: 0.5rem;
+        padding: 0.25rem 0.5rem;
         font-size: 1rem;
         line-height: 2rem;
         white-space: nowrap;
@@ -66,7 +66,7 @@
 @media all and (max-width: 767px) {
   .Navbar {
     .wrapper {
-      flex-direction: column;
+      // flex-direction: column;
       .burger {
         position: fixed;
         left: 0;

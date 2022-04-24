@@ -16,6 +16,7 @@ import My from "./Pages/My";
 import { api_check_login } from "./API";
 import { useDispatch } from "react-redux";
 import { LOGIN, LOGOUT } from "./Redux/constants";
+import Test from "./Pages/Test";
 
 function App() {
   let dispatch = useDispatch();
@@ -33,6 +34,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/test" element={<Test />} />
         <Route path="/new" element={<New />} />
         <Route path="/webtoons" element={<Webtoons />} />
         <Route path="/webtoon/:_id" element={<WebtoonDetail />} />

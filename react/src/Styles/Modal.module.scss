@@ -9,11 +9,10 @@
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 100;
   .wrapper {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    // position: fixed;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
     z-index: 100;
-    background-color: #fff;
   }
 }

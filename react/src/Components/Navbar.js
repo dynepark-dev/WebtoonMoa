@@ -7,6 +7,7 @@ import useToggle from "../Hooks/useToggle";
 import Modal from "./Modal";
 import Login from "./Login";
 import NavbarIcons from "./NavbarIcons";
+import Searchbar from "./Searchbar";
 
 function Navbar() {
   const tabArray = [
@@ -20,7 +21,8 @@ function Navbar() {
   ];
   const [flip, setFlip] = useToggle(false);
   const [open, setOpen] = useToggle(false);
-  const [modalOpen, setModalOpen] = useToggle(false);
+  const [loginOpen, setLoginOpen] = useToggle(false);
+  const [searchOpen, setSearchOpen] = useToggle(false);
   const [active, setActive] = useToggle(-1);
 
   return (
@@ -55,10 +57,15 @@ function Navbar() {
             </Link>
           ))}
         </ul>
-        <NavbarIcons loginOpen={() => setModalOpen(true)} />
+        <button onClick={() => setSearchOpen(true)}>오픈</button>
+        <NavbarIcons loginOpen={() => setLoginOpen(true)} />
       </div>
-      <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
-        <Login onClose={() => setModalOpen(false)} />
+      <Modal isOpen={searchOpen} onClose={() => setSearchOpen(false)}>
+        <Searchbar searchClose={() => setSearchOpen(false)} />
+      </Modal>
+
+      <Modal isOpen={loginOpen} onClose={() => setLoginOpen(false)}>
+        <Login onClose={() => setLoginOpen(false)} />
       </Modal>
     </nav>
   );
