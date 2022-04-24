@@ -5,7 +5,7 @@ import logo from "../Assets/logo.svg";
 import logo_kr from "../Assets/logo_kr.svg";
 import useToggle from "../Hooks/useToggle";
 import Modal from "./Modal";
-import Login from "./Login";
+import Auth from "./Auth";
 import NavbarIcons from "./NavbarIcons";
 
 function Navbar() {
@@ -57,7 +57,7 @@ function Navbar() {
       </div>
 
       <Modal isOpen={loginOpen} onClose={() => setLoginOpen(false)}>
-        <Login onClose={() => setLoginOpen(false)} />
+        <Auth onClose={() => setLoginOpen(false)} />
       </Modal>
     </nav>
   );

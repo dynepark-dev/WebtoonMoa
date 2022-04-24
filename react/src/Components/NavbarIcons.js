@@ -30,7 +30,9 @@ function NavItem({ icon, children, title }) {
 
   return (
     <li ref={iconRef} className={styles.NavItem} title={title}>
-      <div onClick={() => setOpen(!open)}>{icon}</div>
+      <div className={styles.icon} onClick={() => setOpen(!open)}>
+        {icon}
+      </div>
       {open && children}
     </li>
   );
@@ -88,7 +90,7 @@ function DropdownMenu({ loginOpen }) {
             goToMenu="menu"
           />
           <DropdownItem
-            children="Settings & Privacy"
+            children="Settings & Privacy ##"
             leftIcon={<i className="fa-solid fa-gear" />}
             rightIcon={<i className="fa-solid fa-chevron-right" />}
             goToMenu="settings"
@@ -239,7 +241,7 @@ function DropdownMenu({ loginOpen }) {
             link="/faq"
           />
           <DropdownItem
-            children="Contact"
+            children="Contact ##"
             leftIcon={<i className="fa-solid fa-envelope" />}
           />
           <DropdownItem

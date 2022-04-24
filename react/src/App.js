@@ -16,6 +16,8 @@ import My from "./Pages/My";
 import { api_check_login } from "./API";
 import { useDispatch } from "react-redux";
 import { LOGIN, LOGOUT } from "./Redux/constants";
+import Login from "./Pages/Login";
+import ProtectedRoute from "./Pages/ProtectedRoute";
 
 function App() {
   let dispatch = useDispatch();
@@ -32,18 +34,22 @@ function App() {
     <div className="App">
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route exact path="/" element={<Home />} />
         <Route path="/new" element={<New />} />
         <Route path="/webtoons" element={<Webtoons />} />
         <Route path="/webtoon/:_id" element={<WebtoonDetail />} />
-        <Route path="/my" element={<My />} />
         <Route path="/faq" element={<Faq />} />
+        <Route exact path="/login" element={<Login />} />
         <Route path="/policy">
           <Route path="terms" element={<Terms />} />
           <Route path="privacy" element={<Privacy />} />
           <Route path="teenager" element={<Teenager />} />
         </Route>
         <Route path="*" element={<NotFound />} />
+
+        <Route element={<ProtectedRoute />}>
+          <Route path="/my" element={<My />} />
+        </Route>
       </Routes>
       <HoverButton />
       <Footer />

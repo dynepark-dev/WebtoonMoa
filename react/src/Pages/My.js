@@ -1,7 +1,6 @@
 import React from "react";
 import HorizontalLine from "../Components/HorizontalLine";
 import styles from "../Styles/My.module.scss";
-// import data from "../DB/database.json";
 import WebtoonsList from "../Components/WebtoonsList";
 import useToggle from "../Hooks/useToggle";
 

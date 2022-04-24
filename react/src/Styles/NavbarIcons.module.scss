@@ -14,9 +14,7 @@
   color: var(--text-color);
   height: 100%;
   display: flex;
-  i {
-    font-size: 16px;
-  }
+  font-size: 16px;
 
   .NavItem {
     cursor: pointer;
@@ -25,6 +23,9 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    .icon {
+      padding: 0.5rem 1rem;
+    }
     .dropdown {
       position: absolute;
       top: 32px;
@@ -37,11 +38,10 @@
       border-radius: var(--border-radius);
       overflow: hidden;
       transition: height var(--speed) ease;
-
       .menu {
         width: 100%;
         hr {
-          border-top: none;
+          border: none;
           border-bottom: 1px solid var(--bg-accent);
         }
       }
