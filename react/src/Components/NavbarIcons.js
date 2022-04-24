@@ -4,17 +4,17 @@ import { CSSTransition } from "react-transition-group";
 import SlideSwitch from "./SlideSwitch";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import Searchbar from "./Searchbar";
+import useClickOutside from "../Hooks/useClickOutside";
 
-function NavbarIcons({ searchClose, loginOpen }) {
+function NavbarIcons({ loginOpen }) {
   return (
     <div className={styles.NavbarIcons}>
-      {/* <NavItem title="new" icon={<i className="fa-solid fa-bell" />} /> */}
-      <NavItem
+      {/* <NavItem
         title="search"
         icon={<i className="fa-solid fa-magnifying-glass" />}
-      ></NavItem>
-      <NavItem title="more" icon={<i className="fa-solid fa-caret-down" />}>
+      >
+      </NavItem> */}
+      <NavItem title="more" icon={<i className="fa-solid fa-bars" />}>
         <DropdownMenu loginOpen={loginOpen} />
       </NavItem>
     </div>
@@ -26,8 +26,10 @@ export default NavbarIcons;
 function NavItem({ icon, children, title }) {
   const [open, setOpen] = useState(false);
 
+  const iconRef = useClickOutside(() => setOpen(false));
+
   return (
-    <li className={styles.NavItem} title={title}>
+    <li ref={iconRef} className={styles.NavItem} title={title}>
       <div onClick={() => setOpen(!open)}>{icon}</div>
       {open && children}
     </li>
