@@ -18,6 +18,9 @@ import { useDispatch } from "react-redux";
 import { LOGIN, LOGOUT } from "./Redux/constants";
 import Login from "./Pages/Login";
 import ProtectedRoute from "./Pages/ProtectedRoute";
+import Community from "./Pages/Community";
+import CommunityArticle from "./Pages/CommunityArticle";
+import Write from "./Pages/Write";
 
 function App() {
   let dispatch = useDispatch();
@@ -39,6 +42,8 @@ function App() {
         <Route path="/webtoons" element={<Webtoons />} />
         <Route path="/webtoon/:_id" element={<WebtoonDetail />} />
         <Route path="/faq" element={<Faq />} />
+        <Route path="/community" element={<Community />} />
+        <Route path="/community/:id" element={<CommunityArticle />} />
         <Route exact path="/login" element={<Login />} />
         <Route path="/policy">
           <Route path="terms" element={<Terms />} />
@@ -47,6 +52,7 @@ function App() {
         </Route>
         <Route path="*" element={<NotFound />} />
 
+        <Route exact path="/write" element={<Write />} />
         <Route element={<ProtectedRoute />}>
           <Route path="/my" element={<My />} />
         </Route>
