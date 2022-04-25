@@ -5,7 +5,7 @@ import logo from "../Assets/logo.svg";
 import logo_kr from "../Assets/logo_kr.svg";
 import useToggle from "../Hooks/useToggle";
 import Modal from "./Modal";
-import Login from "./Login";
+import Auth from "./Auth";
 import NavbarIcons from "./NavbarIcons";
 
 function Navbar() {
@@ -19,16 +19,12 @@ function Navbar() {
     { id: 6, title: "커뮤니티", link: "/community" },
   ];
   const [flip, setFlip] = useToggle(false);
-  const [open, setOpen] = useToggle(false);
-  const [modalOpen, setModalOpen] = useToggle(false);
+  const [loginOpen, setLoginOpen] = useToggle(false);
   const [active, setActive] = useToggle(-1);
 
   return (
     <nav className={styles.Navbar}>
       <div className={styles.wrapper}>
-        <div className={styles.burger} onClick={() => setOpen()}>
-          <i className="fa-solid fa-bars" />
-        </div>
         <Link to="/" onClick={() => setActive(-1)}>
           <div
             className={`${styles.logo} ${flip && styles.flip}`}
@@ -38,7 +34,7 @@ function Navbar() {
             <img className={styles.logo_back} src={logo_kr} alt="logo_kr" />
           </div>
         </Link>
-        <ul className={`${styles.gnb} ${open && styles.open}`}>
+        <ul className={styles.gnb}>
           {tabArray.map((item) => (
             <Link
               to={item.link}
@@ -55,10 +51,13 @@ function Navbar() {
             </Link>
           ))}
         </ul>
-        <NavbarIcons loginOpen={() => setModalOpen(true)} />
+        <div className={styles.navIcons}>
+          <NavbarIcons loginOpen={() => setLoginOpen(true)} />
+        </div>
       </div>
-      <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
-        <Login onClose={() => setModalOpen(false)} />
+
+      <Modal isOpen={loginOpen} onClose={() => setLoginOpen(false)}>
+        <Auth onClose={() => setLoginOpen(false)} />
       </Modal>
     </nav>
   );

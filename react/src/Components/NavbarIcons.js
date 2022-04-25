@@ -4,17 +4,18 @@ import { CSSTransition } from "react-transition-group";
 import SlideSwitch from "./SlideSwitch";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import useClickOutside from "../Hooks/useClickOutside";
 
 function NavbarIcons({ loginOpen }) {
   return (
     <div className={styles.NavbarIcons}>
-      <NavItem title="new" icon={<i className="fa-solid fa-bell" />} />
-      <NavItem
+      {/* <NavItem
         title="search"
         icon={<i className="fa-solid fa-magnifying-glass" />}
-      />
-      <NavItem title="more" icon={<i className="fa-solid fa-caret-down" />}>
-        <DropdownMenu loginOpen={loginOpen}></DropdownMenu>
+      >
+      </NavItem> */}
+      <NavItem title="more" icon={<i className="fa-solid fa-bars" />}>
+        <DropdownMenu loginOpen={loginOpen} />
       </NavItem>
     </div>
   );
@@ -25,9 +26,11 @@ export default NavbarIcons;
 function NavItem({ icon, children, title }) {
   const [open, setOpen] = useState(false);
 
+  const iconRef = useClickOutside(() => setOpen(false));
+
   return (
-    <li className={styles.NavItem} title={title}>
-      <div className={styles.iconLeft} onClick={() => setOpen(!open)}>
+    <li ref={iconRef} className={styles.NavItem} title={title}>
+      <div className={styles.icon} onClick={() => setOpen(!open)}>
         {icon}
       </div>
       {open && children}
@@ -87,7 +90,7 @@ function DropdownMenu({ loginOpen }) {
             goToMenu="menu"
           />
           <DropdownItem
-            children="Settings & Privacy"
+            children="Settings & Privacy ##"
             leftIcon={<i className="fa-solid fa-gear" />}
             rightIcon={<i className="fa-solid fa-chevron-right" />}
             goToMenu="settings"
@@ -238,7 +241,7 @@ function DropdownMenu({ loginOpen }) {
             link="/faq"
           />
           <DropdownItem
-            children="Contact"
+            children="Contact ##"
             leftIcon={<i className="fa-solid fa-envelope" />}
           />
           <DropdownItem

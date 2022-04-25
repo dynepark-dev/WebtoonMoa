@@ -74,7 +74,7 @@ function Webtoons() {
             setData={setGenre}
           />
         </div>
-        <WebtoonsList webtoons={data.webtoons} />
+        <WebtoonsList isNew={false} webtoons={data.webtoons} />
         <LoadingAndError loading={loading} error={error} data={data} />
         <Button
           children="더보기"
