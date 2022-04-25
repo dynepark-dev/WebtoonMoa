@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import useToggle from "../Hooks/useToggle";
-import styles from "../Styles/Login.module.scss";
+import styles from "../Styles/Auth.module.scss";
 import Checkbox from "./Checkbox";
 import HorizontalLine from "./HorizontalLine";
 import { useDispatch } from "react-redux";
 import { login, signup } from "../Redux/actions";
 
-function Login({ onClose }) {
+function Auth({ onClose }) {
   const dispatch = useDispatch();
   const oAuthArray = [
     {
@@ -65,9 +65,8 @@ function Login({ onClose }) {
       setActive(0);
     }
   };
-  console.log(inputValue);
   return (
-    <div className={styles.Login}>
+    <div className={styles.Auth}>
       <Banner onClose={onClose} />
       <div className={styles.content}>
         <Top tabArray={tabArray} setActive={setActive} active={active} />
@@ -90,7 +89,7 @@ function Login({ onClose }) {
   );
 }
 
-export default Login;
+export default Auth;
 
 function Banner({ onClose }) {
   return (

@@ -1,0 +1,82 @@
+@import "../Variables/variables.scss";
+
+.Write {
+  background-color: #fff;
+  max-width: $max-width;
+  margin: auto;
+  .wrapper {
+    padding: 20px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    .header {
+      font-size: 16px;
+      padding: 8px 12px;
+      margin: 0;
+      width: 100%;
+      border-top: 1px solid $border-grey;
+      border-bottom: 1px solid $border-grey;
+    }
+    .category {
+      width: 100%;
+      display: flex;
+      margin: 0;
+      padding: 0;
+      .categoryTab {
+        list-style: none;
+        width: 5em;
+        text-align: center;
+        border: 1px solid $border-grey;
+        background-color: $background-white;
+        padding: 0 0.5em;
+        cursor: pointer;
+        white-space: nowrap;
+        &:hover {
+          filter: brightness(0.9);
+        }
+        #selectedTab {
+          background-color: $background-white;
+          font-weight: bold;
+        }
+      }
+    }
+    .formTop {
+      width: 100%;
+      border: 1px solid $border-grey;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      label[for="title"] {
+        background-color: $background-white;
+        padding: 4px 12px;
+        border-right: 1px solid $border-grey;
+        margin: 0;
+        font-size: 14px;
+      }
+      input[id="title"] {
+        flex: 1;
+        padding: 4px 8px;
+        font-size: 14px;
+        &:focus {
+          outline: none;
+          box-shadow: 0px 0px 1px 1px $background-blue;
+        }
+      }
+    }
+    textarea {
+      width: 100%;
+    }
+    .button {
+      border: none;
+      cursor: pointer;
+      margin-top: 12px;
+      width: 82px;
+      height: 32px;
+      border-radius: 4px;
+      font-weight: bold;
+      color: $white;
+      background-color: $background-blue;
+    }
+  }
+}

@@ -1,12 +1,11 @@
 import React from "react";
 import HorizontalLine from "../Components/HorizontalLine";
 import styles from "../Styles/My.module.scss";
-import data from "../DB/database.json";
 import WebtoonsList from "../Components/WebtoonsList";
 import useToggle from "../Hooks/useToggle";
 
 function My() {
-  const webtoon = data.naver;
+  const webtoon = {};
   const fav = [...webtoon].reverse().splice(0, 22);
   const trash = [...webtoon].splice(1, 22);
   const history = [...webtoon].splice(20, 22);

@@ -1,0 +1,124 @@
+@import "../Variables/variables.scss";
+
+.Community {
+  background-color: grey;
+  .wrapper {
+    background-color: $background-white;
+    min-width: 380px;
+    max-width: $max-width;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    margin: auto;
+    h2 {
+      width: 100%;
+      background-color: var(--background-grey);
+      border-top: 1px solid var(--border-grey);
+      border-bottom: 1px solid var(--border-grey);
+      font-size: 20px;
+      padding: 12px;
+      margin: 0 0 12px;
+      font-weight: bold;
+    }
+    .category {
+      width: 100%;
+      display: flex;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      a {
+        text-decoration: none;
+        color: inherit;
+        .category_tab {
+          font-size: 13px;
+          text-align: center;
+          list-style: none;
+          padding: 4px 10px;
+          cursor: pointer;
+          border: 1px solid var(--border-grey);
+          background-color: var(--background-white);
+          &:hover {
+            filter: brightness(0.9);
+          }
+        }
+      }
+    }
+    .table {
+      margin: 12px 0;
+      width: 100%;
+      text-align: center;
+      border-collapse: collapse;
+      border-top: 2px solid var(--text-black);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      table {
+        width: 100%;
+
+        tbody tr {
+          font-size: 11px;
+          line-height: 28px;
+          cursor: pointer;
+          background-color: var(--background-white);
+          &:hover {
+            filter: brightness(0.9);
+          }
+        }
+        thead {
+          font-size: 16px;
+          line-height: 48px;
+          white-space: nowrap;
+        }
+        #my_post {
+          color: var(--google-green);
+        }
+        #selected {
+          background-color: var(--border-grey);
+          font-weight: bold;
+        }
+        tr :nth-child(1),
+        tr :nth-child(2),
+        tr :nth-child(3) {
+          font-size: 13px;
+        }
+        tr:nth-of-type(even) {
+          background-color: #f3f3f3;
+        }
+        tr :nth-child(2) {
+          text-align: left;
+        }
+      }
+    }
+    .page_buttons {
+      padding: 0;
+      margin: 4px 0 12px;
+      list-style: none;
+      display: flex;
+      li {
+        list-style: none;
+        cursor: pointer;
+        padding: 6px 12px;
+        background-color: var(--background-white);
+        border: 1px solid var(--border-grey);
+        &:hover {
+          filter: brightness(0.9);
+        }
+        #current_page {
+          background-color: var(--border-grey);
+        }
+      }
+    }
+    .write_button {
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      width: 82px;
+      height: 32px;
+      margin: 0 12px;
+      border-radius: 4px;
+      font-weight: bold;
+      color: var(--background-white);
+      background-color: var(--google-blue);
+    }
+  }
+}

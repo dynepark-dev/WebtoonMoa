@@ -53,3 +53,11 @@ export const api_new_webtoon = async (platform) =>
   await axios.get(`${url}/new/${platform}`, {
     withCredentials: true,
   });
+
+//post
+
+export const add_post = async (post) =>
+  await axios.post(`${url}/post`, post, { withCredentials: true });
+
+export const delete_post = async (post_id) =>
+  await axios.delete(`${url}/post/${post_id}`, { withCredentials: true });

@@ -1,11 +1,18 @@
 @import "../Variables/variables.scss";
 
 .Platform {
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   .wrapper {
     img {
       width: 100%;
     }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .Platform {
+    width: 24px;
+    height: 24px;
   }
 }
